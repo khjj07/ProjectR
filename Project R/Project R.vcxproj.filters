@@ -33,6 +33,21 @@
     <ClCompile Include="render.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="gameObject.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Example.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="collision.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="transform.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="render.h">
@@ -46,6 +61,21 @@
     </ClInclude>
     <ClInclude Include="singleton.h">
       <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="gameObject.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="component.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="transform.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="collision.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

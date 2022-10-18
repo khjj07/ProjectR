@@ -1,12 +1,12 @@
 #pragma once
+#include <math.h>
 template<typename T>
 struct Vector2
 {
 	T x;
 	T y;
-	Vector2(T a, T b)
+	T distance(Vector2 a, Vector2 b)
 	{
-		x = a;
-		y = b;
+		return (T)pow(pow(a.x-b.x,2)+ pow(a.y - b.y, 2),0.5)
 	}
 };

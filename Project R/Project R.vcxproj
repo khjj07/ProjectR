@@ -127,15 +127,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="collision.cpp" />
+    <ClCompile Include="Example.cpp" />
+    <ClCompile Include="gameObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="render.cpp" />
+    <ClCompile Include="renderer.cpp" />
     <ClCompile Include="screen.cpp" />
+    <ClCompile Include="transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="collision.h" />
+    <ClInclude Include="component.h" />
     <ClInclude Include="define.h" />
+    <ClInclude Include="gameObject.h" />
     <ClInclude Include="render.h" />
+    <ClInclude Include="renderer.h" />
     <ClInclude Include="screen.h" />
     <ClInclude Include="singleton.h" />
+    <ClInclude Include="transform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
