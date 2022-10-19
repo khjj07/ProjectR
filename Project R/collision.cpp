@@ -1,31 +1,24 @@
 #include "collision.h"
 #include "transform.h"
-struct Static
-{
-
-};
-
+#include "screen.h"
 template<typename T>
 Collision<T>::Collision(Transform *t,int width,int height,int id)
 {
-
+	size.x = width;
+	size.y = height;
 	transform = t;
 }
 
 template<typename T>
 bool Collision<T>::OnCollisionEnter(Collision other)
 {
-	int x, y = transform->position.x, transform->position.y;
+	int x = transform->position.x, y = transform->position.y;
 	int distance = Vector2<int>::distance(transform->position,other.transform->position);
-
-	for (int i = 0; i < Height; y++)
-	{
-		for (int j = 0; j < Width; x++)
-		{
-			x + j + (y + i) * Screen::Width;
-		}
-	}
-	transform->position
+	int range_between = size.x / 2 + other.size.x / 2;
+	if (range_between > distance)
+		return true;
+	else
+		return false;
 }
 template<typename T>
 bool Collision<T>::OnCollisionStay(Collision other);

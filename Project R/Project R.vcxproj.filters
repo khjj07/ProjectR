@@ -48,6 +48,12 @@
     <ClCompile Include="renderer.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="engine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="component.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="render.h">
@@ -75,6 +81,12 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="renderer.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="engine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Example.h">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>

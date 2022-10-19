@@ -1,14 +1,20 @@
 #include "renderer.h"
-
-Renderer::Renderer(Transform * t,char *s)
+#include "render.h"
+Renderer::Renderer(Transform * t,char *s,int x,int y, int d)
 {
 	transform = t;
-	shape = s;
+	Shape = s;
+	Center.x = x;
+	Center.y = y;
+	depth = d;
 }
 
-void Renderer::draw()
+void Renderer::Draw()
 {
-	//중심점 기준으로 맞추기
-	//여기 구현 예정
-	//꼭 기억
+	Render::Instance()->Write(transform->position.x, transform->position.y, BACKGROUND_INTENSITY, Shape, depth);
+}
+
+void Renderer::Update()
+{
+	Draw();
 }

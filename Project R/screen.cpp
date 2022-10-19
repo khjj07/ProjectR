@@ -8,4 +8,5 @@ Screen::Screen()
 {
 	char cmd[50];
 	sprintf_s(cmd, "mode con cols=%d lines=%d | title %s", Width,Height,Title);
+	system(cmd);
 }

@@ -16,11 +16,11 @@ public:
 	void Start();
 	void Update();
 	void OnDisable();
-	void OnDestory();
+	void OnDestroy();
 	void AddComponent(Component *);
 	void RemoveComponent(Component *);
 	Component * GetComponent();
-	vector<Component*> Components;
+	vector<Component> components;
 	Transform *transform;
 	Renderer* renderer;
 private:

@@ -10,12 +10,14 @@ class Collision :public Component
 {
 public:
 	Collision(Transform* t, int width, int height, int id);
-	Transform *transform;
 	bool OnCollisionEnter(Collision other);
 	bool OnCollisionStay(Collision other);
 	bool OnCollisionExit(Collision other);
 	T type;
-	int* Shape;
+	Vector2<int> size;
+	Transform* transform;
+	int* shape;
+	
 protected:
 private:
 };

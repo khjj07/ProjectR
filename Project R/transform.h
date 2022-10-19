@@ -4,7 +4,7 @@
 class Transform : public Component 
 {
 public:
-	Transform();
+	Transform(int x,int y);
 	Vector2<int> position;
 private:
 
