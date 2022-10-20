@@ -23,10 +23,10 @@ void GameObject::Start() {
 }
 
 void GameObject::Update() {
-	vector<Component>::iterator component = components.begin();
+	vector<Component*>::iterator component = components.begin();
 	for (; component < components.end(); component++)
 	{
-		component->Update();
+		(* component)->Update();
 	}
 }
 
@@ -39,7 +39,7 @@ void GameObject::OnDestroy() {
 }
 
 void GameObject::AddComponent(Component * newComponent) {
-	components.push_back(*newComponent);
+	components.push_back(newComponent);
 }
 
 Component * GameObject::GetComponent() {

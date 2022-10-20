@@ -20,7 +20,7 @@ public:
 	void AddComponent(Component *);
 	void RemoveComponent(Component *);
 	Component * GetComponent();
-	vector<Component> components;
+	vector<Component*> components;
 	Transform *transform;
 	Renderer* renderer;
 private:
