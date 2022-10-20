@@ -112,7 +112,7 @@ void Render::Write(int x, int y, WORD color, string str, int depth)
 	{
 		for (int i = 0; i < (* iter).size(); i++)
 		{
-			if (DepthBuffer[x + i + y * Screen::Width] <= depth)
+			if (DepthBuffer[x + i + (y+k) * Screen::Width] <= depth)
 			{
 				StringBuffer[x + i + (y + k) * Screen::Width].Char.UnicodeChar = (*iter)[i];
 				StringBuffer[x + i + (y + k) * Screen::Width].Attributes = color;

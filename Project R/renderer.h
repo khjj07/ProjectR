@@ -14,7 +14,7 @@ public:
 	int color;
 	Transform* transform;
 	void Draw();
-	virtual void Update();
+	virtual void Update(double dt);
 	void SetColor(int c);
 private:
 

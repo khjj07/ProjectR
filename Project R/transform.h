@@ -7,7 +7,7 @@ class Transform : public Component
 {
 public:
 	Transform(Vector2<int> p, Vector2<int>s, vector<Component*>* c);
-	Vector2<int> position;
+	Vector2<float> position;
 	Vector2<int> size;
 	Vector2<int> center;
 	vector<Component*> *componentList;

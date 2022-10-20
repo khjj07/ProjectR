@@ -13,10 +13,12 @@ public:
 	GameObject();
 	~GameObject();
 	void Awake();
-	void OnEnabled();
 	void Start();
-	void Update();
+	void Update(double  dt);
+	void OnEnable();
 	void OnDisable();
+	void Enable();
+	void Disable();
 	void OnDestroy();
 	void OnCollisionEnter(Collision* other);
 	void OnCollisionStay(Collision* other);
@@ -28,8 +30,10 @@ public:
 	Transform *transform;
 	Renderer* renderer;
 	Collision* collision;
+	bool isEnabled = false;
+	bool started = false;
 private:
-
+	
 };
 
 

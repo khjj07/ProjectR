@@ -8,14 +8,15 @@ class Component
 public:
 	Component();
 	void Awake();
-	void OnEnabled();
-	void Start();
-	virtual void Update();
-	void OnDisable();
+	virtual void Start();
+	virtual void Update(double  dt);
+	virtual void OnDisable();
+	virtual void OnEnable();
 	void OnDestroy();
 	virtual void OnCollisionEnter(Collision* other);
 	virtual void OnCollisionStay(Collision* other);
 	virtual void OnCollisionExit(Collision* other);
+	bool isEnabled = true;
 protected:
 private:
 };

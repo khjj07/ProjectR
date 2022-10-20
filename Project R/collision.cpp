@@ -4,26 +4,26 @@
 #include "screen.h"
 #include "engine.h"
 
-Collision::Collision(Transform *t, Rectangle2D* s,int id)
+Collision::Collision(Transform *t, Rectangle2D* s,enum CollisionTag id)
 {
+
 	shape = s;
 	transform = t;
+	tag = id;
 	Engine::Instance()->AddCollision(this);
 }
 
 bool Collision::CollisionEnter(Collision* other)
 {
 	bool check = true;
-	Vector2<int>A1 = Vector2<int>::add(other->shape->A,other->transform->position);
-	Vector2<int>B1 = Vector2<int>::add(other->shape->B, other->transform->position);
+	Vector2<int>A1 =other->shape->A + other->transform->position.toInt();
+	Vector2<int>B1 = other->shape->B + other->transform->position.toInt();
 
-	Vector2<int>A2 = Vector2<int>::add(shape->A , transform->position);
-	Vector2<int>B2 = Vector2<int>::add(shape->B , transform->position);
+	Vector2<int>A2 = shape->A + transform->position.toInt();
+	Vector2<int>B2 = shape->B +transform->position.toInt();
 	if (!entered)
 	{
-		check |= (A1.x >= A2.x && A1.x <= B2.x) && (A1.y >= A2.y && A1.y <= B2.y);
-		check |= (B1.x >= A2.x && B1.x <= B2.x) && (B1.y >= A2.y && B1.y <= B2.y);
-		check |= (A1.x <= B2.x && A1.y <= B2.y) && (B1.x >= A2.x && B1.y <= A2.y);
+		 check=!((A1.x <= A2.x && B1.x<=A2.x) || (A1.y <= A2.y && B1.y <= A2.y) || (A1.x >= B2.x && B1.x >= B2.x) || (A1.y >= B2.y && B1.y >= B2.y));
 
 
 		if (check)
@@ -39,15 +39,12 @@ bool Collision::CollisionEnter(Collision* other)
 bool Collision::CollisionStay(Collision* other)
 {
 	bool check = true;
-	Vector2<int>A1 = Vector2<int>::add(other->shape->A, other->transform->position);
-	Vector2<int>B1 = Vector2<int>::add(other->shape->B, other->transform->position);
+	Vector2<int>A1 = other->shape->A + other->transform->position.toInt();
+	Vector2<int>B1 = other->shape->B + other->transform->position.toInt();
 
-	Vector2<int>A2 = Vector2<int>::add(shape->A, transform->position);
-	Vector2<int>B2 = Vector2<int>::add(shape->B, transform->position);
-	check &= A1.x >= A2.x && A1.x <= B2.x || B1.x >= A2.x && B1.x <= B2.x;
-	check &= A1.y >= A2.y && A1.y <= B2.y || B1.y >= A2.y && B1.y <= B2.y;
-	check |= A1.x >= A2.x && A1.x <= B2.x && B1.x >= A2.x && B1.x <= B2.x && (A1.y >= A2.y && A1.y <= B2.y || B1.y >= A2.y && B1.y <= B2.y);
-	check |= A1.y >= A2.y && A1.y <= B2.y && B1.x >= A2.y && B1.y<= B2.y &&(A1.x >= A2.x && A1.x <= B2.x || B1.x >= A2.x && B1.x <= B2.x);
+	Vector2<int>A2 = shape->A + transform->position.toInt();
+	Vector2<int>B2 = shape->B + transform->position.toInt();
+	check = !((A1.x <= A2.x && B1.x <= A2.x) || (A1.y <= A2.y && B1.y <= A2.y) || (A1.x >= B2.x && B1.x >= B2.x) || (A1.y >= B2.y && B1.y >= B2.y));
 	return check;
 }
 

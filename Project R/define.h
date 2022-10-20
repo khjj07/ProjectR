@@ -16,13 +16,37 @@ struct Vector2
 		x = a;
 		y = b;
 	}
-	static Vector2<T> add(Vector2<T>A, Vector2<T>B)
+	Vector2<T> operator *(float f)
 	{
 		Vector2<T> result;
-		result.x = A.x + B.x;
-		result.y = A.y + B.y;
+		result.x=x * f;
+		result.y = y * f;
 		return result;
 	}
+
+	Vector2<T> operator +(Vector2<T> B)
+	{
+		Vector2<T> result;
+		result.x = x + B.x;
+		result.y = y + B.y;
+		return result;
+	}
+	Vector2<T> operator -(Vector2<T> B)
+	{
+		Vector2<T> result;
+		result.x = x - B.x;
+		result.y = y - B.y;
+		return result;
+	}
+
+	Vector2<int> toInt()
+	{
+		Vector2<int> result;
+		result.x = x;
+		result.y = y;
+		return result;
+	}
+
 	T distance(Vector2 a, Vector2 b)
 	{
 		return (T)pow(pow(a.x - b.x, 2) + pow(a.y - b.y, 2), 0.5);

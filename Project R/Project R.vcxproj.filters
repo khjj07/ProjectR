@@ -40,6 +40,12 @@
     <Filter Include="Input">
       <UniqueIdentifier>{0ab9ba1a-85f7-4d12-bd01-6339232a43a9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Util\State">
+      <UniqueIdentifier>{880590b3-3367-4e52-a815-a4b4db24dd68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util\StateManager">
+      <UniqueIdentifier>{24df0dbd-9350-443f-9554-ee2c30f85237}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -60,7 +66,7 @@
     <ClCompile Include="component.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Example.cpp">
+    <ClCompile Include="player.cpp">
       <Filter>Game\Object</Filter>
     </ClCompile>
     <ClCompile Include="collision.cpp">
@@ -75,8 +81,20 @@
     <ClCompile Include="playerScript.cpp">
       <Filter>Game\Component\Specific</Filter>
     </ClCompile>
-    <ClCompile Include="Example2.cpp">
+    <ClCompile Include="floor.cpp">
       <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="gameState.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="gameStateManager.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="mainState.cpp">
+      <Filter>Util\State</Filter>
+    </ClCompile>
+    <ClCompile Include="mainStateManager.cpp">
+      <Filter>Util\StateManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,7 +119,7 @@
     <ClInclude Include="engine.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Example.h">
+    <ClInclude Include="player.h">
       <Filter>Game\Object</Filter>
     </ClInclude>
     <ClInclude Include="collision.h">
@@ -119,8 +137,20 @@
     <ClInclude Include="Icollision.h">
       <Filter>Game\Component\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="Example2.h">
+    <ClInclude Include="floor.h">
       <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="gameState.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="gameStateManager.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="mainState.h">
+      <Filter>Util\State</Filter>
+    </ClInclude>
+    <ClInclude Include="mainStateManager.h">
+      <Filter>Util\StateManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
 #include "engine.h"
 GameObject::GameObject()
 {
-	Awake();
+	Engine::Instance()->AddObject(this);
 }
 
 GameObject::~GameObject()
@@ -10,16 +10,12 @@ GameObject::~GameObject()
 	OnDestroy();
 }
 
-void GameObject::Awake() {
-
-}
-
-void GameObject::OnEnabled() {
-
-}
-
 void GameObject::Start() {
-
+	vector<Component*>::iterator component = componentList.begin();
+	for (; component < componentList.end(); component++)
+	{
+		(*component)->Start();
+	}
 }
 void GameObject::OnCollisionEnter(Collision* other) 
 {
@@ -46,16 +42,35 @@ void GameObject::OnCollisionExit(Collision* other)
 	}
 }
 
-void GameObject::Update() {
+void GameObject::Update(double  dt) {
 	vector<Component*>::iterator component = componentList.begin();
 	for (; component < componentList.end(); component++)
 	{
-		(* component)->Update();
+		(* component)->Update(dt);
 	}
 }
-
+void GameObject::OnEnable() {
+	vector<Component*>::iterator component = componentList.begin();
+	for (; component < componentList.end(); component++)
+	{
+		(*component)->OnEnable();
+	}
+}
 void GameObject::OnDisable() {
+	vector<Component*>::iterator component = componentList.begin();
+	for (; component < componentList.end(); component++)
+	{
+		(*component)->OnDisable();
+	}
+}
+void GameObject::Enable() {
+	isEnabled = true;
+	OnEnable();
+}
 
+void GameObject::Disable() {
+	isEnabled = false;
+	OnDisable();
 }
 
 void GameObject::OnDestroy() {

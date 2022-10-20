@@ -18,7 +18,8 @@ class Engine : public Singleton<Engine>
 public:
 	Engine();
 	void Run();
-	void Update();
+	void Start();
+	void Update(double dt);
 	void AddObject(GameObject *newObject);
 	void AddCollision(Collision *newCollision);
 	enum EngineState state= Running;
@@ -27,4 +28,5 @@ public:
 private:
 	vector<GameObject> gameObjectList;
 	vector<Collision *> collisionList;
+	
 };

@@ -12,7 +12,7 @@ Renderer::Renderer(Transform * t,string s, int c, int d)
 
 void Renderer::Draw()
 {
-	Render::Instance()->Write(transform->position.x, transform->position.y, color, shape, depth);
+	Render::Instance()->Write((int)transform->position.x, (int)transform->position.y, color, shape, depth);
 }
 
 void Renderer::SetColor(int c)
@@ -20,7 +20,7 @@ void Renderer::SetColor(int c)
 	color = c;
 }
 
-void Renderer::Update()
+void Renderer::Update(double dt)
 {
 	Draw();
 }

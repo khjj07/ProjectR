@@ -2,13 +2,9 @@
 #include "collision.h"
 Component::Component()
 {
-
+	Awake();
 }
 void Component::Awake() {
-
-}
-
-void Component::OnEnabled() {
 
 }
 
@@ -16,8 +12,13 @@ void Component::Start() {
 
 }
 
-void Component::Update() {
+void Component::Update(double dt)
+{
 
+}
+void Component::OnEnable() 
+{
+	
 }
 
 void Component::OnDisable() {
