@@ -2,17 +2,20 @@
 #include "transform.h"
 #include "define.h"	
 #include "component.h"
+#include <string>
+using namespace std;
 
 class Renderer :public Component
 {
 public:
-	Renderer(Transform *t,char *s,int x,int y,int d);
-	char* Shape;
+	Renderer(Transform *t,string s,int c,int d);
+	string shape;
 	int depth;
-	Vector2<int> Center;
+	int color;
 	Transform* transform;
 	void Draw();
 	virtual void Update();
+	void SetColor(int c);
 private:
 
 };

@@ -1,23 +1,18 @@
 #pragma once
+
 #include "component.h"
 #include "transform.h"
+#include <vector>
 
-struct Static{
-
-};
-template<typename T>
 class Collision :public Component
 {
 public:
-	Collision(Transform* t, int width, int height, int id);
-	bool OnCollisionEnter(Collision other);
-	bool OnCollisionStay(Collision other);
-	bool OnCollisionExit(Collision other);
-	T type;
-	Vector2<int> size;
+	Collision(Transform* t, Rectangle2D *s, int id);
+	bool CollisionEnter(Collision* other);
+	bool CollisionStay(Collision* other);
+	bool CollisionExit(Collision* other);
 	Transform* transform;
-	int* shape;
-	
-protected:
+	Rectangle2D *shape;
 private:
+	bool entered = false;
 };

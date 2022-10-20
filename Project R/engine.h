@@ -4,6 +4,7 @@
 #include "render.h"
 #include "screen.h"
 #include<vector>
+#include "collision.h"
 using namespace std;
 
 enum EngineState
@@ -19,10 +20,11 @@ public:
 	void Run();
 	void Update();
 	void AddObject(GameObject *newObject);
+	void AddCollision(Collision *newCollision);
 	enum EngineState state= Running;
 	Render* render;
 	Screen* screen;
 private:
 	vector<GameObject> gameObjectList;
-
+	vector<Collision *> collisionList;
 };

@@ -28,6 +28,18 @@
     <Filter Include="Game\Component">
       <UniqueIdentifier>{23bef8ac-4a72-44f3-98e2-cd98b6c72dd2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Component\Common">
+      <UniqueIdentifier>{97e6afbd-0ef6-49cb-a141-8cbe52414780}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Component\Specific">
+      <UniqueIdentifier>{96991b76-cfd9-4209-a443-29019eab052b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Component\Interface">
+      <UniqueIdentifier>{b7763355-4fdb-49df-ab2a-75e52547bf1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{0ab9ba1a-85f7-4d12-bd01-6339232a43a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -51,14 +63,20 @@
     <ClCompile Include="Example.cpp">
       <Filter>Game\Object</Filter>
     </ClCompile>
+    <ClCompile Include="collision.cpp">
+      <Filter>Game\Component\Common</Filter>
+    </ClCompile>
     <ClCompile Include="renderer.cpp">
-      <Filter>Game\Component</Filter>
+      <Filter>Game\Component\Common</Filter>
     </ClCompile>
     <ClCompile Include="transform.cpp">
-      <Filter>Game\Component</Filter>
+      <Filter>Game\Component\Common</Filter>
     </ClCompile>
-    <ClCompile Include="collision.cpp">
-      <Filter>Game\Component</Filter>
+    <ClCompile Include="playerScript.cpp">
+      <Filter>Game\Component\Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="Example2.cpp">
+      <Filter>Game\Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -86,14 +104,23 @@
     <ClInclude Include="Example.h">
       <Filter>Game\Object</Filter>
     </ClInclude>
-    <ClInclude Include="transform.h">
-      <Filter>Game\Component</Filter>
+    <ClInclude Include="collision.h">
+      <Filter>Game\Component\Common</Filter>
     </ClInclude>
     <ClInclude Include="renderer.h">
-      <Filter>Game\Component</Filter>
+      <Filter>Game\Component\Common</Filter>
     </ClInclude>
-    <ClInclude Include="collision.h">
-      <Filter>Game\Component</Filter>
+    <ClInclude Include="transform.h">
+      <Filter>Game\Component\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="playerScript.h">
+      <Filter>Game\Component\Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Icollision.h">
+      <Filter>Game\Component\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Example2.h">
+      <Filter>Game\Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

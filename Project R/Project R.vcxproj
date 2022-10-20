@@ -131,8 +131,10 @@
     <ClCompile Include="component.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="Example.cpp" />
+    <ClCompile Include="Example2.cpp" />
     <ClCompile Include="gameObject.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="playerScript.cpp" />
     <ClCompile Include="render.cpp" />
     <ClCompile Include="renderer.cpp" />
     <ClCompile Include="screen.cpp" />
@@ -144,12 +146,15 @@
     <ClInclude Include="define.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="Example.h" />
+    <ClInclude Include="Example2.h" />
     <ClInclude Include="gameObject.h" />
+    <ClInclude Include="Icollision.h" />
     <ClInclude Include="render.h" />
     <ClInclude Include="renderer.h" />
     <ClInclude Include="screen.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="transform.h" />
+    <ClInclude Include="playerScript.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
