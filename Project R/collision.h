@@ -3,12 +3,7 @@
 #include "component.h"
 #include "transform.h"
 #include <vector>
-enum CollisionTag
-{
-	PlayerTag,
-	FloorTag,
-	EnemyTag
-};
+
 class Collision :public Component
 {
 public:

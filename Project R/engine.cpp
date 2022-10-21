@@ -1,4 +1,5 @@
 #include "engine.h"
+#include "gamePadManager.h"
 #include <vector>
 #include<windows.h>
 using namespace std;
@@ -27,41 +28,42 @@ void Engine::Run()
 
 void Engine::Start()
 {
-	vector<GameObject>::iterator object = gameObjectList.begin();
+	vector<GameObject*>::iterator object = gameObjectList.begin();
 	for (; object < gameObjectList.end(); object++)
 	{
-		if (object->isEnabled)
+		if ((* object)->isEnabled)
 		{
-			object->Start();
-			object->started = true;
+			(*object)->Start();
+			(*object)->started = true;
 		}
 	}
 }
 
 void Engine::Update(double dt) {
+	GamePadManager::Instance()->Update();
 	render->Update();
-	vector<GameObject>::iterator object = gameObjectList.begin();
+	vector<GameObject *>::iterator object = gameObjectList.begin();
 	for(;  object < gameObjectList.end(); object++)
 	{
-		if (object->isEnabled)
+		if ((*object)->isEnabled)
 		{
-			object->Update(dt);
+			(*object)->Update(dt);
 			vector<Collision*>::iterator other = collisionList.begin();
 			for (; other < collisionList.end(); other++)
 			{
-				if ((*other)->transform != object->transform)
+				if ((*other)->transform != (*object)->transform)
 				{
-					if (object->collision->CollisionEnter((*other)))
+					if ((*object)->collision->CollisionEnter((*other)))
 					{
-						object->OnCollisionEnter(*other);
+						(*object)->OnCollisionEnter(*other);
 					}
-					if (object->collision->CollisionStay((*other)))
+					if ((*object)->collision->CollisionStay((*other)))
 					{
-						object->OnCollisionStay(*other);
+						(*object)->OnCollisionStay(*other);
 					}
-					if (object->collision->CollisionExit((*other)))
+					if ((*object)->collision->CollisionExit((*other)))
 					{
-						object->OnCollisionExit(*other);
+						(*object)->OnCollisionExit(*other);
 					}
 				}
 
@@ -75,7 +77,7 @@ void Engine::Update(double dt) {
 
 void Engine::AddObject(GameObject* newObject)
 {
-	gameObjectList.push_back(*newObject);
+	gameObjectList.push_back(newObject);
 }
 
 void Engine::AddCollision(Collision* newCollision)

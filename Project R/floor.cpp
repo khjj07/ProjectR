@@ -24,4 +24,5 @@ Floor::Floor(int pos_x,int pos_y)
 	AddComponent(renderer);
 	AddComponent(transform);
 	AddComponent(collision);
+	Engine::Instance()->AddObject(this);
 }

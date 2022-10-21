@@ -1,32 +1,37 @@
 ﻿#include<iostream>
 #include"component.h"
 #include "gameState.h"
-#include "mainState.h"
 #include "gameStateManager.h"
-
+#include "gamePadManager.h"
 #include"engine.h"
 #include "player.h"
-#include "floor.h"
+#include "map1Collection.h"
 int main()
 {
-	Engine *engine = Engine::Instance();// 맨위에 있어야 됨
+
+	GamePadManager *gamepadManager = GamePadManager::Instance();
+	gamepadManager->AddPad(0);
+	//gamepadManager->AddPad(1);
+	Engine *engine = Engine::Instance();
 
 	//오브젝트 선언
-	Player* player = new Player(5, 10);
-	Floor* obj2 = new Floor(1, 80);
-	Floor* obj3 = new Floor(60, 70);
-
+	Player* player1 = new Player(5, 10, gamepadManager->p[0]);
+	//Player* player2 = new Player(20, 10, gamepadManager->p[1]);
+	//Collection 선언
+	Map1Collection map1;
 
 	//MainState
-// 	MainState title;
-// 	title.AddObject((GameObject)(* player));
-// 	title.AddObject((GameObject)(*obj2));
-// 	title.AddObject((GameObject)(*obj3));
-// 	MainState ingame();
-// 	GameStateManager<MainState> mainStateManager(&title);
-// 
-// 
-// 	
+	GameState<MainState> title;
+	title.AddObject(player1);
+	//title.AddObject(player2);
+	title.AddCollection(map1);
+	GameState<MainState> ingame;
+	
+
+	GameStateManager<MainState> mainStateManager(&title);
+
+
+
 	engine->Run();
 
 	return 0;

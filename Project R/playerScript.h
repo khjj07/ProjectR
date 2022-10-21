@@ -1,15 +1,18 @@
 #pragma once
 #include "transform.h"
-#include "Icollision.h"
+#include "gamePad.h"
+#include "collision.h"
 class Component;
 class PlayerScript:public Component
 {
 public:
-	PlayerScript(Transform *t);
+	PlayerScript(Transform *t,GamePad* pad);
 	~PlayerScript();
 	void Update(double  dt);
 	void Start();
 	void Input();
+	void Move();
+	void Jump();
 	virtual void  OnCollisionEnter(Collision* other);
 	virtual void  OnCollisionStay(Collision* other);
 	virtual void  OnCollisionExit(Collision* other);
@@ -20,7 +23,7 @@ public:
 	float speed = 30;
 	float jumpforce = 100;
 	bool jumpable = false;
-	
+	GamePad* controller;
 private:
 	Transform* transform;
 };

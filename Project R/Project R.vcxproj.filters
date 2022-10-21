@@ -40,11 +40,8 @@
     <Filter Include="Input">
       <UniqueIdentifier>{0ab9ba1a-85f7-4d12-bd01-6339232a43a9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Util\State">
-      <UniqueIdentifier>{880590b3-3367-4e52-a815-a4b4db24dd68}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Util\StateManager">
-      <UniqueIdentifier>{24df0dbd-9350-443f-9554-ee2c30f85237}</UniqueIdentifier>
+    <Filter Include="Game\Collection">
+      <UniqueIdentifier>{8c0989ee-36c0-4ecb-8f46-932c1644038b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -90,11 +87,17 @@
     <ClCompile Include="gameStateManager.cpp">
       <Filter>Util</Filter>
     </ClCompile>
-    <ClCompile Include="mainState.cpp">
-      <Filter>Util\State</Filter>
+    <ClCompile Include="map1Collection.cpp">
+      <Filter>Game\Collection</Filter>
     </ClCompile>
-    <ClCompile Include="mainStateManager.cpp">
-      <Filter>Util\StateManager</Filter>
+    <ClCompile Include="Collection.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="gamePad.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="gamePadManager.cpp">
+      <Filter>Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -146,11 +149,17 @@
     <ClInclude Include="gameStateManager.h">
       <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="mainState.h">
-      <Filter>Util\State</Filter>
+    <ClInclude Include="collection.h">
+      <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="mainStateManager.h">
-      <Filter>Util\StateManager</Filter>
+    <ClInclude Include="map1Collection.h">
+      <Filter>Game\Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="gamePad.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="gamePadManager.h">
+      <Filter>Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

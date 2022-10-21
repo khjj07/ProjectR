@@ -2,7 +2,7 @@
 #include "engine.h"
 GameObject::GameObject()
 {
-	Engine::Instance()->AddObject(this);
+
 }
 
 GameObject::~GameObject()

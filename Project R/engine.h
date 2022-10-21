@@ -26,7 +26,7 @@ public:
 	Render* render;
 	Screen* screen;
 private:
-	vector<GameObject> gameObjectList;
+	vector<GameObject *> gameObjectList;
 	vector<Collision *> collisionList;
 	
 };

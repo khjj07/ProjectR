@@ -53,6 +53,12 @@ struct Vector2
 	}
 };
 
+enum CollisionTag
+{
+	PlayerTag,
+	FloorTag,
+	EnemyTag
+};
 
 struct Rectangle2D {
 	Vector2<int> A;
