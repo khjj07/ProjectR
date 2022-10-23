@@ -1,8 +1,5 @@
 #pragma once
-#include <iostream>
-#include <windows.h>
-#include <Xinput.h>
-#include <Xinput.h>
+#include "define.h"
 #pragma comment(lib, "xinput.lib")
 
 class GamePad

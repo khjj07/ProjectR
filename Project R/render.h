@@ -1,8 +1,6 @@
 #pragma once
-#include<windows.h>
-#include "singleton.h"
+#include "define.h"
 #include "screen.h"
-#include <string>
 using namespace std;
 
 class Render : public Singleton<Render>
@@ -13,7 +11,8 @@ public:
 	void Init();
 	void Update();
 	void Clear();
-	void Write(int x, int y, WORD color, string str, int depth = 0);
+	void Write(int x, int y, int textColor,int backGroundColor, string str, int depth = 0);
+
 private:
 	HANDLE Buffer[2] = { nullptr };
 	CHAR_INFO StringBuffer[Screen::Width*Screen::Height];

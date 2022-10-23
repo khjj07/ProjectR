@@ -12,11 +12,14 @@ public:
 	virtual void Update(double  dt);
 	virtual void OnDisable();
 	virtual void OnEnable();
+	void Disable();
+	void Enable();
+
 	void OnDestroy();
 	virtual void OnCollisionEnter(Collision* other);
 	virtual void OnCollisionStay(Collision* other);
 	virtual void OnCollisionExit(Collision* other);
-	bool isEnabled = true;
+	bool isEnabled = false;
 protected:
 private:
 };

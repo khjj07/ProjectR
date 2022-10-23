@@ -1,13 +1,10 @@
 #include "engine.h"
 #include "gamePadManager.h"
-#include <vector>
-#include<windows.h>
-using namespace std;
 
 Engine::Engine()
 {
-	render = Render::Instance();
 	screen = Screen::Instance();
+	render = Render::Instance();
 }
 
 void Engine::Run()
@@ -41,6 +38,7 @@ void Engine::Start()
 
 void Engine::Update(double dt) {
 	GamePadManager::Instance()->Update();
+	screen->Update();
 	render->Update();
 	vector<GameObject *>::iterator object = gameObjectList.begin();
 	for(;  object < gameObjectList.end(); object++)
@@ -49,25 +47,29 @@ void Engine::Update(double dt) {
 		{
 			(*object)->Update(dt);
 			vector<Collision*>::iterator other = collisionList.begin();
-			for (; other < collisionList.end(); other++)
+			if ((*object)->collision)
 			{
-				if ((*other)->transform != (*object)->transform)
+				for (; other < collisionList.end(); other++)
 				{
-					if ((*object)->collision->CollisionEnter((*other)))
+					if ((*other)->transform->isEnabled && (*other)->transform != (*object)->transform)
 					{
-						(*object)->OnCollisionEnter(*other);
+						if ((*object)->collision->CollisionEnter((*other)))
+						{
+							(*object)->OnCollisionEnter(*other);
+						}
+						if ((*object)->collision->CollisionStay((*other)))
+						{
+							(*object)->OnCollisionStay(*other);
+						}
+						if ((*object)->collision->CollisionExit((*other)))
+						{
+							(*object)->OnCollisionExit(*other);
+						}
 					}
-					if ((*object)->collision->CollisionStay((*other)))
-					{
-						(*object)->OnCollisionStay(*other);
-					}
-					if ((*object)->collision->CollisionExit((*other)))
-					{
-						(*object)->OnCollisionExit(*other);
-					}
-				}
 
+				}
 			}
+			
 		}
 		
 	}

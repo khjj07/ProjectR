@@ -1,11 +1,10 @@
-#include "floor.h"
+#include "box.h"
 
-Floor::Floor(int pos_x,int pos_y,int size_x,int size_y,string filename,Meterial meterial)
+Box::Box(int pos_x, int pos_y, int size_x, int size_y, string filename, Meterial meterial)
 {
 	//transform에 들어갈 변수
 	Vector2<int> pos(pos_x, pos_y);
-	Vector2<int> size(size_x, size_y); 
-
+	Vector2<int> size(size_x, size_y); //collision에도 사용
 
 	//collision
 	Rectangle2D* collisionShape = new Rectangle2D(size);
@@ -16,5 +15,6 @@ Floor::Floor(int pos_x,int pos_y,int size_x,int size_y,string filename,Meterial 
 	AddComponent(renderer);
 	AddComponent(transform);
 	AddComponent(collision);
+
 	Engine::Instance()->AddObject(this);
 }

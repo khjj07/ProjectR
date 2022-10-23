@@ -1,7 +1,7 @@
 #pragma once
 #include "define.h"
-#include "gameObject.h"
 #include "collection.h"
+
 class MainState;
 
 template <typename T>

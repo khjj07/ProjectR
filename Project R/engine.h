@@ -1,18 +1,19 @@
 #pragma once
-#include "singleton.h"
+#include "define.h"
 #include "gameObject.h"
+#include "component.h"
+#include "collection.h"
+#include "meterial.h"
 #include "render.h"
 #include "screen.h"
-#include<vector>
-#include "collision.h"
-using namespace std;
+
 
 enum EngineState
 {
 	Running,
 	Stop
 };
-
+class GameObject;
 class Engine : public Singleton<Engine>
 {
 public:

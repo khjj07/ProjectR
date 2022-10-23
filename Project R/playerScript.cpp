@@ -82,7 +82,7 @@ void PlayerScript::Update(double dt)
 
 void PlayerScript::OnCollisionEnter(Collision* other)
 {
-	transform->GetComponent<Renderer>()->SetColor(BACKGROUND_RED);
+	transform->GetComponent<Renderer>()->SetTextColor(10);
 }
 
 void PlayerScript::OnCollisionStay(Collision* other)
@@ -100,6 +100,6 @@ void PlayerScript::OnCollisionStay(Collision* other)
 
 void PlayerScript::OnCollisionExit(Collision* other)
 {
-	transform->GetComponent<Renderer>()->SetColor(BACKGROUND_INTENSITY);
+	transform->GetComponent<Renderer>()->SetBackgroundColor(BACKGROUND_INTENSITY);
 	
 }

@@ -1,9 +1,10 @@
 #pragma once
-#include <vector>
+#include "define.h"
 #include "component.h"
 #include "transform.h"
 #include "renderer.h"
 #include "collision.h"
+
 using namespace std;
 
 
@@ -28,7 +29,7 @@ public:
 	Component * GetComponent();
 	vector<Component*> componentList;
 	Transform *transform;
-	Renderer* renderer;
+	Renderer *renderer;
 	Collision* collision;
 	bool isEnabled = false;
 	bool started = false;

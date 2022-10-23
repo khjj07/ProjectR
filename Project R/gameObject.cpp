@@ -50,26 +50,28 @@ void GameObject::Update(double  dt) {
 	}
 }
 void GameObject::OnEnable() {
-	vector<Component*>::iterator component = componentList.begin();
-	for (; component < componentList.end(); component++)
-	{
-		(*component)->OnEnable();
-	}
+	
 }
 void GameObject::OnDisable() {
-	vector<Component*>::iterator component = componentList.begin();
-	for (; component < componentList.end(); component++)
-	{
-		(*component)->OnDisable();
-	}
+
 }
 void GameObject::Enable() {
 	isEnabled = true;
+	vector<Component*>::iterator component = componentList.begin();
+	for (; component < componentList.end(); component++)
+	{
+		(* component)->Enable();
+	}
 	OnEnable();
 }
 
 void GameObject::Disable() {
 	isEnabled = false;
+	vector<Component*>::iterator component = componentList.begin();
+	for (; component < componentList.end(); component++)
+	{
+		(*component)->Disable();
+	}
 	OnDisable();
 }
 

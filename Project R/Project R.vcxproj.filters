@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Engine">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
@@ -31,17 +23,27 @@
     <Filter Include="Game\Component\Common">
       <UniqueIdentifier>{97e6afbd-0ef6-49cb-a141-8cbe52414780}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Component\Specific">
-      <UniqueIdentifier>{96991b76-cfd9-4209-a443-29019eab052b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Component\Interface">
-      <UniqueIdentifier>{b7763355-4fdb-49df-ab2a-75e52547bf1f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Input">
       <UniqueIdentifier>{0ab9ba1a-85f7-4d12-bd01-6339232a43a9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\Collection">
       <UniqueIdentifier>{8c0989ee-36c0-4ecb-8f46-932c1644038b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\UI">
+      <UniqueIdentifier>{4b3c51dc-5c50-4c95-b177-18266f406f9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Prefab">
+      <UniqueIdentifier>{2bce02f4-e24c-4d66-9ba0-89d725df5712}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shape">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Game\Scripts">
+      <UniqueIdentifier>{96991b76-cfd9-4209-a443-29019eab052b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util\Event">
+      <UniqueIdentifier>{60bc7414-24c5-41dd-b52b-6d7f1a45de44}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -54,14 +56,8 @@
     <ClCompile Include="render.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="gameObject.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="engine.cpp">
       <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="component.cpp">
-      <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="player.cpp">
       <Filter>Game\Object</Filter>
@@ -76,7 +72,7 @@
       <Filter>Game\Component\Common</Filter>
     </ClCompile>
     <ClCompile Include="playerScript.cpp">
-      <Filter>Game\Component\Specific</Filter>
+      <Filter>Game\Scripts</Filter>
     </ClCompile>
     <ClCompile Include="floor.cpp">
       <Filter>Game\Object</Filter>
@@ -90,14 +86,53 @@
     <ClCompile Include="map1Collection.cpp">
       <Filter>Game\Collection</Filter>
     </ClCompile>
-    <ClCompile Include="Collection.cpp">
-      <Filter>Util</Filter>
-    </ClCompile>
     <ClCompile Include="gamePad.cpp">
       <Filter>Input</Filter>
     </ClCompile>
     <ClCompile Include="gamePadManager.cpp">
       <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="titleUICollection.cpp">
+      <Filter>Game\Collection</Filter>
+    </ClCompile>
+    <ClCompile Include="cursorScript.cpp">
+      <Filter>Game\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="cursor.cpp">
+      <Filter>Game\Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="button.cpp">
+      <Filter>Game\Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="component.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="gameObject.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="meterial.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="collection.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="shape.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="fps.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Game\Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="event.cpp">
+      <Filter>Util\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="eventHandler.cpp">
+      <Filter>Util\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="buttonScript.cpp">
+      <Filter>Game\Scripts</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -112,12 +147,6 @@
     </ClInclude>
     <ClInclude Include="singleton.h">
       <Filter>Util</Filter>
-    </ClInclude>
-    <ClInclude Include="gameObject.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="component.h">
-      <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="engine.h">
       <Filter>Engine</Filter>
@@ -135,10 +164,7 @@
       <Filter>Game\Component\Common</Filter>
     </ClInclude>
     <ClInclude Include="playerScript.h">
-      <Filter>Game\Component\Specific</Filter>
-    </ClInclude>
-    <ClInclude Include="Icollision.h">
-      <Filter>Game\Component\Interface</Filter>
+      <Filter>Game\Scripts</Filter>
     </ClInclude>
     <ClInclude Include="floor.h">
       <Filter>Game\Object</Filter>
@@ -147,9 +173,6 @@
       <Filter>Util</Filter>
     </ClInclude>
     <ClInclude Include="gameStateManager.h">
-      <Filter>Util</Filter>
-    </ClInclude>
-    <ClInclude Include="collection.h">
       <Filter>Util</Filter>
     </ClInclude>
     <ClInclude Include="map1Collection.h">
@@ -161,5 +184,73 @@
     <ClInclude Include="gamePadManager.h">
       <Filter>Input</Filter>
     </ClInclude>
+    <ClInclude Include="titleUICollection.h">
+      <Filter>Game\Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="cursorScript.h">
+      <Filter>Game\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="cursor.h">
+      <Filter>Game\Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="button.h">
+      <Filter>Game\Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="component.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="gameObject.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="meterial.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="collection.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="shape.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="color.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="fps.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Game\Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="event.h">
+      <Filter>Util\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="eventHandler.h">
+      <Filter>Util\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="buttonScript.h">
+      <Filter>Game\Scripts</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="button_frame1.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="cursor.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="player.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="floor1.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="title.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="content.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="button_frame2.txt">
+      <Filter>Shape</Filter>
+    </Text>
   </ItemGroup>
 </Project>

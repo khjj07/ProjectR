@@ -1,11 +1,6 @@
-#include <stdlib.h>
-#include <iostream>
-#include <windows.h>
-#include <vector>
-#include <string>
-#include <sstream>
-#include"screen.h"
-#include"render.h"
+#include "define.h"
+#include "render.h"
+
 using namespace std;
 Render::Render()
 {
@@ -99,25 +94,31 @@ vector<string> split(string input, char delimiter) {
 	return result;
 }
 
-void Render::Write(int x, int y, WORD color, string str, int depth)
+void Render::Write(int x, int y, int textColor,int backgroundColor, string str, int depth)
 {
 	DWORD dw;
 	COORD CursorPosition = { x, y };
-	//SetConsoleCursorPosition(Buffer[BufferIndex], CursorPosition);
 	vector<string> result = split(str, '\n');
 	vector<string>::iterator iter;
-	SetConsoleTextAttribute(Buffer[BufferIndex], color);
+
 	int k;
+	int color = textColor + backgroundColor * 16;
+	SetConsoleTextAttribute(Buffer[BufferIndex], color);
+	
 	for (iter = result.begin(), k=0;  iter< result.end(); iter++)
 	{
 		for (int i = 0; i < (* iter).size(); i++)
 		{
-			if (DepthBuffer[x + i + (y+k) * Screen::Width] <= depth)
+			if(x + i + (y + k) * Screen::Width< Screen::Height*Screen::Width)
 			{
-				StringBuffer[x + i + (y + k) * Screen::Width].Char.UnicodeChar = (*iter)[i];
-				StringBuffer[x + i + (y + k) * Screen::Width].Attributes = color;
-				DepthBuffer[x + i + (y + k) * Screen::Width] = depth;
+				if (DepthBuffer[x + i + (y + k) * Screen::Width] <= depth && ((*iter)[i] != ' '))
+				{
+					StringBuffer[x + i + (y + k) * Screen::Width].Char.UnicodeChar = (*iter)[i];
+					StringBuffer[x + i + (y + k) * Screen::Width].Attributes = color;
+					DepthBuffer[x + i + (y + k) * Screen::Width] = depth;
+				}
 			}
+			
 		}
 		k++;
 	}

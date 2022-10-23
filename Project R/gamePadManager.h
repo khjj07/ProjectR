@@ -1,9 +1,5 @@
 #pragma once
-#include <iostream>
-#include <windows.h>
-#include <Xinput.h>
-#include <Xinput.h>
-#include "singleton.h"
+#include "define.h"
 #include "gamePad.h"
 #pragma comment(lib, "xinput.lib")
 

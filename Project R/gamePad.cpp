@@ -1,5 +1,4 @@
 #include "gamePad.h"
-#include <iostream>
 
 void GamePad::GetState()
 {

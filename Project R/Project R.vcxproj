@@ -128,15 +128,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Collection.cpp" />
+    <ClCompile Include="Box.cpp" />
+    <ClCompile Include="button.cpp" />
+    <ClCompile Include="collection.cpp" />
     <ClCompile Include="collision.cpp" />
     <ClCompile Include="component.cpp" />
+    <ClCompile Include="cursor.cpp" />
+    <ClCompile Include="cursorScript.cpp" />
     <ClCompile Include="engine.cpp" />
+    <ClCompile Include="event.cpp" />
+    <ClCompile Include="eventHandler.cpp" />
+    <ClCompile Include="fps.cpp" />
     <ClCompile Include="gamePad.cpp" />
     <ClCompile Include="gamePadManager.cpp" />
     <ClCompile Include="gameState.cpp" />
     <ClCompile Include="gameStateManager.cpp" />
     <ClCompile Include="map1Collection.cpp" />
+    <ClCompile Include="meterial.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="floor.cpp" />
     <ClCompile Include="gameObject.cpp" />
@@ -145,29 +153,52 @@
     <ClCompile Include="render.cpp" />
     <ClCompile Include="renderer.cpp" />
     <ClCompile Include="screen.cpp" />
+    <ClCompile Include="shape.cpp" />
+    <ClCompile Include="buttonScript.cpp" />
+    <ClCompile Include="titleUICollection.cpp" />
     <ClCompile Include="transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="button.h" />
+    <ClInclude Include="buttonScript.h" />
     <ClInclude Include="collision.h" />
+    <ClInclude Include="color.h" />
     <ClInclude Include="component.h" />
+    <ClInclude Include="cursor.h" />
+    <ClInclude Include="cursorScript.h" />
     <ClInclude Include="define.h" />
     <ClInclude Include="engine.h" />
+    <ClInclude Include="event.h" />
+    <ClInclude Include="eventHandler.h" />
+    <ClInclude Include="fps.h" />
     <ClInclude Include="gamePad.h" />
     <ClInclude Include="gamePadManager.h" />
     <ClInclude Include="gameState.h" />
     <ClInclude Include="gameStateManager.h" />
     <ClInclude Include="collection.h" />
+    <ClInclude Include="Box.h" />
     <ClInclude Include="map1Collection.h" />
+    <ClInclude Include="meterial.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="floor.h" />
     <ClInclude Include="gameObject.h" />
-    <ClInclude Include="Icollision.h" />
     <ClInclude Include="render.h" />
     <ClInclude Include="renderer.h" />
     <ClInclude Include="screen.h" />
+    <ClInclude Include="shape.h" />
     <ClInclude Include="singleton.h" />
+    <ClInclude Include="titleUICollection.h" />
     <ClInclude Include="transform.h" />
     <ClInclude Include="playerScript.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="button_frame1.txt" />
+    <Text Include="button_frame2.txt" />
+    <Text Include="content.txt" />
+    <Text Include="cursor.txt" />
+    <Text Include="floor1.txt" />
+    <Text Include="player.txt" />
+    <Text Include="title.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

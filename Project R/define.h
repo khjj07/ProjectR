@@ -1,6 +1,18 @@
 #pragma once
 #include <math.h>
+#include <string>
 #include <vector>
+#include <windows.h>
+#include <Xinput.h>
+#include <Xinput.h>
+#include <stdlib.h>
+#include <iostream>
+#include <sstream>
+#include "color.h"
+#include "singleton.h"
+
+
+
 using namespace std;
 template<typename T>
 struct Vector2
@@ -57,7 +69,9 @@ enum CollisionTag
 {
 	PlayerTag,
 	FloorTag,
-	EnemyTag
+	EnemyTag,
+	CursorTag,
+	ButtonTag
 };
 
 struct Rectangle2D {

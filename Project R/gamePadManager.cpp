@@ -1,5 +1,4 @@
 #include "gamePadManager.h"
-#include "gamePad.h"
 
 
 GamePadManager::GamePadManager()

@@ -16,24 +16,45 @@ void Component::Update(double dt)
 {
 
 }
+
+void Component::Enable()
+{
+	isEnabled = true;
+	OnEnable();
+}
+
+void Component::Disable()
+{
+	isEnabled = false;
+	OnDisable();
+}
+
 void Component::OnEnable() 
 {
 	
 }
 
-void Component::OnDisable() {
+void Component::OnDisable() 
+{
 
 }
 
-void Component::OnDestroy() {
+void Component::OnDestroy() 
+{
 
 }
-void Component::OnCollisionEnter(Collision* other) {
+
+void Component::OnCollisionEnter(Collision* other) 
+{
 
 }
-void Component::OnCollisionStay(Collision* other){
+
+void Component::OnCollisionStay(Collision* other)
+{
 
 }
-void Component::OnCollisionExit(Collision* other) {
+
+void Component::OnCollisionExit(Collision* other) 
+{
 
 }

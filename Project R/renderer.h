@@ -1,21 +1,19 @@
 #pragma once
 #include "transform.h"
-#include "define.h"	
-#include "component.h"
-#include <string>
-using namespace std;
-
+#include "meterial.h"
 class Renderer :public Component
 {
 public:
-	Renderer(Transform *t,string s,int c,int d);
+	Renderer(Transform *t,string s, Meterial meterial,int d);
 	string shape;
 	int depth;
-	int color;
+	int backgroundColor;
+	int textColor;
 	Transform* transform;
 	void Draw();
 	virtual void Update(double dt);
-	void SetColor(int c);
+	void SetBackgroundColor(int color);
+	void SetTextColor(int color);
 private:
 
 };
