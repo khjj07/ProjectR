@@ -16,5 +16,6 @@ Aim::Aim(int size_x, int size_y, string filename, Meterial meterial)
 }
 void Aim::Move()
 {
-	velocity = direction * speed;
+	velocity.y = direction.y * speed;
+	velocity.x = direction.x * speed;
 }

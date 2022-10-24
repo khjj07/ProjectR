@@ -12,9 +12,8 @@ public:
 	void OnClick();
 	virtual void Update(double  dt);
 	virtual void Start();
-	virtual void  OnCollisionEnter(Collision* other);
 	virtual void  OnCollisionStay(Collision* other);
-	virtual void  OnCollisionExit(Collision* other);
+
 	Transform* transform;
 	Event OnClickEvent{};
 	bool entered = false;

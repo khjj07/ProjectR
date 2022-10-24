@@ -31,7 +31,7 @@ int main()
 	ingame.SetCollection(*map1);
 
 	GameStateManager<MainState>* mainStateManager = GameStateManager<MainState>::Instance();
-	mainStateManager->Change(&ingame);
+	mainStateManager->Change(&title);
 	engine->Run();
 
 	return 0;

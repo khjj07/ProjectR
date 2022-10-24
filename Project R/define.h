@@ -31,7 +31,7 @@ struct Vector2
 	Vector2<T> operator *(float f)
 	{
 		Vector2<T> result;
-		result.x=x * f;
+		result.x = x * f;
 		result.y = y * f;
 		return result;
 	}

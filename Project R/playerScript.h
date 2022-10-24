@@ -14,9 +14,7 @@ public:
 	void Input();
 	void Move();
 	void Jump();
-	virtual void  OnCollisionEnter(Collision* other);
 	virtual void  OnCollisionStay(Collision* other);
-	virtual void  OnCollisionExit(Collision* other);
 	Vector2<float> direction;
 	Vector2<float> velocity;
 	Vector2<float> gravity = Vector2<float>(0,1);

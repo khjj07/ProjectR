@@ -95,9 +95,6 @@
     <ClCompile Include="titleUICollection.cpp">
       <Filter>Game\Collection</Filter>
     </ClCompile>
-    <ClCompile Include="cursorScript.cpp">
-      <Filter>Game\Scripts</Filter>
-    </ClCompile>
     <ClCompile Include="cursor.cpp">
       <Filter>Game\Object\UI</Filter>
     </ClCompile>
@@ -136,6 +133,9 @@
     </ClCompile>
     <ClCompile Include="aim.cpp">
       <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="cursorScript.cpp">
+      <Filter>Game\Scripts</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -190,9 +190,6 @@
     <ClInclude Include="titleUICollection.h">
       <Filter>Game\Collection</Filter>
     </ClInclude>
-    <ClInclude Include="cursorScript.h">
-      <Filter>Game\Scripts</Filter>
-    </ClInclude>
     <ClInclude Include="cursor.h">
       <Filter>Game\Object\UI</Filter>
     </ClInclude>
@@ -234,6 +231,9 @@
     </ClInclude>
     <ClInclude Include="aim.h">
       <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="cursorScript.h">
+      <Filter>Game\Scripts</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

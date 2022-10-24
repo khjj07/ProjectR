@@ -26,17 +26,17 @@ FPSScript::FPSScript(Renderer* r)
 
 void FPSScript::Update(double dt)
 {
-
+	FPSOldTime = clock();
 	char FPSTextBuffer[30];
 	FrameCnt++;
-	FPSCurTime = clock();
+
 	if (FPSCurTime - FPSOldTime >= 1000)
 	{
 		sprintf_s(FPSTextBuffer, "FPS:%d", FrameCnt);
 		renderer->shape = string(FPSTextBuffer);
-		FPSOldTime = clock();
 		FrameCnt = 0;
 	}
+	FPSCurTime = clock();
 }
 
 

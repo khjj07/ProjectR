@@ -98,15 +98,6 @@ void PlayerScript::Update(double dt)
 	transform->position = transform->position + velocity * dt;
 	velocity = velocity + gravity;
 	velocity.x = velocity.x + velocity.x* (-fraction);
-
-	aim->position = aim->direction.Normalize() * aim->range;
-	aim->transform->position = transform->position + aim->position;
-	aim->velocity = aim->velocity + aim->velocity * -(aim->fraction);
-}
-
-void PlayerScript::OnCollisionEnter(Collision* other)
-{
-	transform->GetComponent<Renderer>()->SetTextColor(10);
 }
 
 void PlayerScript::OnCollisionStay(Collision* other)
@@ -119,10 +110,4 @@ void PlayerScript::OnCollisionStay(Collision* other)
 			jumpable = true;
 		velocity.y = 0;
 	}
-}
-
-void PlayerScript::OnCollisionExit(Collision* other)
-{
-	transform->GetComponent<Renderer>()->SetBackgroundColor(BACKGROUND_INTENSITY);
-	
 }
