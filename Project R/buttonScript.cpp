@@ -11,21 +11,31 @@ ButtonScript::ButtonScript(Transform *t)
 void ButtonScript::OnClick()
 {
 	transform->GetComponent<Renderer>()->SetBackgroundColor(Color::BROWN);
-	//OnClickEvent();
+	OnClickEvent();
+}
+void ButtonScript::Start()
+{
+
+}
+void ButtonScript::Update(double dt)
+{
+	transform->GetComponent<Renderer>()->SetBackgroundColor(Color::WHITE);
 }
 
 void ButtonScript::OnCollisionEnter(Collision* other)
 {
-	transform->GetComponent<Renderer>()->SetBackgroundColor(Color::RED);
+	if (other->tag == CursorTag)
+	{
+		transform->GetComponent<Renderer>()->SetBackgroundColor(Color::RED);
+	}
 }
 
 void ButtonScript::OnCollisionStay(Collision* other)
 {
 
-
 }
 
 void ButtonScript::OnCollisionExit(Collision* other)
 {
-	transform->GetComponent<Renderer>()->SetBackgroundColor(Color::WHITE);
+	
 }

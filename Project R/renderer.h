@@ -4,7 +4,7 @@
 class Renderer :public Component
 {
 public:
-	Renderer(Transform *t,string s, Meterial meterial,int d);
+	Renderer(Transform *t,string s, Meterial meterial);
 	string shape;
 	int depth;
 	int backgroundColor;

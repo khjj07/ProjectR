@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="aim.cpp" />
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="collection.cpp" />
@@ -159,6 +160,7 @@
     <ClCompile Include="transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="aim.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="buttonScript.h" />
     <ClInclude Include="collision.h" />

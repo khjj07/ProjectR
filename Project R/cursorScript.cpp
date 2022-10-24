@@ -89,6 +89,7 @@ void CursorScript::Update(double dt)
 	velocity = velocity + velocity * (-fraction);
 	direction.x = 0;
 	direction.y = 0;
+	EnterTarget = nullptr;
 }
 
 void CursorScript::OnCollisionEnter(Collision* other)
@@ -96,6 +97,7 @@ void CursorScript::OnCollisionEnter(Collision* other)
 	if (other->tag == ButtonTag)
 	{
 		EnterTarget = other->transform->GetComponent<ButtonScript>();
+		transform->GetComponent<Renderer>()->SetBackgroundColor(Color::RED);
 	}
 }
 
@@ -106,5 +108,5 @@ void CursorScript::OnCollisionStay(Collision* other)
 
 void CursorScript::OnCollisionExit(Collision* other)
 {
-	EnterTarget = NULL;
+		
 }

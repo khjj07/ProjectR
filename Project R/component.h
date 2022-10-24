@@ -14,7 +14,6 @@ public:
 	virtual void OnEnable();
 	void Disable();
 	void Enable();
-
 	void OnDestroy();
 	virtual void OnCollisionEnter(Collision* other);
 	virtual void OnCollisionStay(Collision* other);

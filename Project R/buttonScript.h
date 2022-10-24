@@ -10,6 +10,8 @@ class ButtonScript :public Component
 public:
 	ButtonScript(Transform* t);
 	void OnClick();
+	virtual void Update(double  dt);
+	virtual void Start();
 	virtual void  OnCollisionEnter(Collision* other);
 	virtual void  OnCollisionStay(Collision* other);
 	virtual void  OnCollisionExit(Collision* other);

@@ -2,11 +2,11 @@
 #include "renderer.h"
 #include "render.h"
 
-Renderer::Renderer(Transform* t, string s, Meterial meterial, int d)
+Renderer::Renderer(Transform* t, string s, Meterial meterial)
 {
 	transform = t;
 	shape = s;
-	depth = d;
+	depth = meterial.depth;
 	backgroundColor = meterial.backgroundColor;
 	textColor = meterial.textColor;
 }

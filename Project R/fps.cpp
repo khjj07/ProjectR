@@ -49,11 +49,10 @@ FPS::FPS(int x, int y)
 
 	//¼±¾ð  ¹× addComponent
 	transform = new Transform(pos, Vector2<int>(0,0), &componentList);
-	renderer = new Renderer(transform, string(""), Meterial(Color::WHITE,Color::BLACK), 0);
+	renderer = new Renderer(transform, string(""), Meterial(Color::WHITE,Color::BLACK,3));
 	FPSScript *script=new FPSScript(renderer);
 	AddComponent(renderer);
 	AddComponent(transform);
 	AddComponent(script);
-	Engine::Instance()->AddObject(this);
 }
 

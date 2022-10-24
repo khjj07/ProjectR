@@ -1,5 +1,8 @@
 #include "engine.h"
 #include "gamePadManager.h"
+#include <iostream>
+#include <thread>
+using std::thread;
 
 Engine::Engine()
 {
@@ -15,6 +18,7 @@ void Engine::Run()
 	double timeScale = 1.0 / (double)periodFrequency;
 	while (state == Running)
 	{
+		currentCollection = nextCollection;
 		Start();
 		QueryPerformanceCounter((LARGE_INTEGER*)&s);
 		Update(dt);
@@ -23,66 +27,65 @@ void Engine::Run()
 	}
 }
 
+
 void Engine::Start()
 {
-	vector<GameObject*>::iterator object = gameObjectList.begin();
-	for (; object < gameObjectList.end(); object++)
+	vector<GameObject*>::iterator object = currentCollection->gameObjectList.begin();
+	for (; object < currentCollection->gameObjectList.end(); object++)
 	{
-		if ((* object)->isEnabled)
-		{
 			(*object)->Start();
 			(*object)->started = true;
-		}
 	}
 }
 
 void Engine::Update(double dt) {
+	
 	GamePadManager::Instance()->Update();
 	screen->Update();
 	render->Update();
-	vector<GameObject *>::iterator object = gameObjectList.begin();
-	for(;  object < gameObjectList.end(); object++)
+	vector<thread *> t_list;
+	vector<GameObject *>::iterator object = currentCollection->gameObjectList.begin();
+	vector<Collision*>::iterator other = currentCollection->collisionList.begin();
+	for(;  object < currentCollection->gameObjectList.end(); object++)
 	{
-		if ((*object)->isEnabled)
-		{
-			(*object)->Update(dt);
-			vector<Collision*>::iterator other = collisionList.begin();
-			if ((*object)->collision)
-			{
-				for (; other < collisionList.end(); other++)
-				{
-					if ((*other)->transform->isEnabled && (*other)->transform != (*object)->transform)
-					{
-						if ((*object)->collision->CollisionEnter((*other)))
-						{
-							(*object)->OnCollisionEnter(*other);
-						}
-						if ((*object)->collision->CollisionStay((*other)))
-						{
-							(*object)->OnCollisionStay(*other);
-						}
-						if ((*object)->collision->CollisionExit((*other)))
-						{
-							(*object)->OnCollisionExit(*other);
-						}
-					}
+		thread new_t([object, dt]() {
+			(*object)->Update(dt);  
+		});
+		//스레드로 시도중
+		t_list.push_back(&new_t);
 
+		if ((*object)->collision)
+		{
+
+			for (; other < currentCollection->collisionList.end(); other++)
+			{
+				if ((*other)->transform != (*object)->transform)
+				{
+					if ((*object)->collision->CollisionEnter((*other)))
+					{
+						(*object)->OnCollisionEnter(*other);
+					}
+					if ((*object)->collision->CollisionExit((*other)))
+					{
+						(*object)->OnCollisionExit(*other);
+					}
+					if ((*object)->collision->CollisionStay((*other)))
+					{
+						(*object)->OnCollisionStay(*other);
+					}
 				}
 			}
-			
 		}
-		
+
 	}
-		
-
+	vector<thread *>::iterator t=t_list.begin();
+	for (; t < t_list.end(); t++)
+	{
+		(* t)->join();
+	}
 }
 
-void Engine::AddObject(GameObject* newObject)
+void Engine::SetCollection(Collection *col)
 {
-	gameObjectList.push_back(newObject);
-}
-
-void Engine::AddCollision(Collision* newCollision)
-{
-	collisionList.push_back(newCollision);
+	nextCollection = col;
 }

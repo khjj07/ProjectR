@@ -9,8 +9,8 @@ class CursorScript :public Component
 public:
 	CursorScript(Transform* t, GamePad* pad);
 	~CursorScript();
-	void Update(double  dt);
-	void Start();
+	virtual void Update(double  dt);
+	virtual void Start();
 	void Input();
 	void Move();
 	virtual void  OnCollisionEnter(Collision* other);

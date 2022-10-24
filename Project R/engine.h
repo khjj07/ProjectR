@@ -11,7 +11,8 @@
 enum EngineState
 {
 	Running,
-	Stop
+	Stop,
+	Restart
 };
 class GameObject;
 class Engine : public Singleton<Engine>
@@ -21,13 +22,11 @@ public:
 	void Run();
 	void Start();
 	void Update(double dt);
-	void AddObject(GameObject *newObject);
-	void AddCollision(Collision *newCollision);
+	void SetCollection(Collection* newList);
 	enum EngineState state= Running;
 	Render* render;
 	Screen* screen;
 private:
-	vector<GameObject *> gameObjectList;
-	vector<Collision *> collisionList;
-	
+	Collection* currentCollection;
+	Collection* nextCollection;
 };

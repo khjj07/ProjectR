@@ -8,8 +8,8 @@ class Transform : public Component
 public:
 	Transform(Vector2<int> p, Vector2<int>s, vector<Component*>* c);
 	Vector2<float> position;
-	Vector2<int> size;
-	Vector2<int> center;
+	Vector2<float> size;
+	Vector2<float> center;
 	vector<Component*> *componentList;
 	template<typename T>
 	T* GetComponent();

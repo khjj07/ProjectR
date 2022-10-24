@@ -10,7 +10,6 @@ Collision::Collision(Transform *t, Rectangle2D* s,enum CollisionTag id)
 	shape = s;
 	transform = t;
 	tag = id;
-	Engine::Instance()->AddCollision(this);
 }
 
 bool Collision::CollisionEnter(Collision* other)
@@ -23,7 +22,7 @@ bool Collision::CollisionEnter(Collision* other)
 	Vector2<int>B2 = shape->B +transform->position.toInt();
 	if (!entered)
 	{
-		 check=!((A1.x <= A2.x && B1.x<=A2.x) || (A1.y <= A2.y && B1.y <= A2.y) || (A1.x >= B2.x && B1.x >= B2.x) || (A1.y >= B2.y && B1.y >= B2.y));
+		check = !((A1.x < A2.x && B1.x < A2.x) || (A1.y < A2.y && B1.y < A2.y) || (A1.x > B2.x && B1.x > B2.x) || (A1.y > B2.y && B1.y > B2.y));
 
 
 		if (check)
@@ -34,6 +33,8 @@ bool Collision::CollisionEnter(Collision* other)
 		else
 			return false;
 	}
+	else
+		return false;
 }
 
 bool Collision::CollisionStay(Collision* other)
@@ -52,15 +53,25 @@ bool Collision::CollisionExit(Collision* other)
 {
 	if (entered)
 	{
-		if (Collision::CollisionStay(other))
-		{
-			return false;
-		}
-		else
+		bool check = false;
+		Vector2<int>A1 = other->shape->A + other->transform->position.toInt();
+		Vector2<int>B1 = other->shape->B + other->transform->position.toInt();
+		Vector2<int>A2 = shape->A + transform->position.toInt();
+		Vector2<int>B2 = shape->B + transform->position.toInt();
+		check = ((A1.x <= A2.x && B1.x <= A2.x) || (A1.y <= A2.y && B1.y <= A2.y) || (A1.x >= B2.x && B1.x >= B2.x) || (A1.y >= B2.y && B1.y >= B2.y));
+		if (check)
 		{
 			entered = false;
 			return true;
 		}
+		else
+		{
+			return false;
+		}
+	}
+	else
+	{
+		return false;
 	}
 	
 }

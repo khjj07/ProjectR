@@ -51,6 +51,14 @@ struct Vector2
 		return result;
 	}
 
+	Vector2<float> Normalize()
+	{
+		Vector2<float> result;
+		result = (* this) * (1 / pow(pow(x, 2) + pow(y, 2), 0.5));
+		return result;
+	}
+
+
 	Vector2<int> toInt()
 	{
 		Vector2<int> result;

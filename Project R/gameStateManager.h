@@ -1,6 +1,7 @@
 #pragma once
 #include "define.h"
 #include "gameState.h"
+#include "engine.h"
 template<typename T>
 class GameStateManager :public Singleton<GameStateManager<T> > {
 	public:
@@ -43,15 +44,6 @@ void GameStateManager<T>::Previous()
 template<typename T>
 void GameStateManager<T>::Change(GameState<T>* state)
 {
-	vector<GameObject *>::iterator object = currentState->gameObjectList.begin();
-	for (; object < currentState->gameObjectList.end(); object++)
-	{
-		(*object)->Disable();
-	}
 	currentState = state;
-	object = currentState->gameObjectList.begin();
-	for (; object < currentState->gameObjectList.end(); object++)
-	{
-		(*object)->Enable();
-	}
+	Engine::Instance()->SetCollection(&(currentState->collection));
 }

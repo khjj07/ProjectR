@@ -11,10 +11,9 @@ Floor::Floor(int pos_x,int pos_y,int size_x,int size_y,string filename,Meterial 
 	Rectangle2D* collisionShape = new Rectangle2D(size);
 	//¼±¾ð  ¹× addComponent
 	transform = new Transform(pos, size, &componentList);
-	renderer = new Renderer(transform, Shape::Load(filename), meterial, 0);
+	renderer = new Renderer(transform, Shape::Load(filename), meterial);
 	collision = new Collision(transform, collisionShape, FloorTag);
 	AddComponent(renderer);
 	AddComponent(transform);
 	AddComponent(collision);
-	Engine::Instance()->AddObject(this);
 }

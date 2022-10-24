@@ -134,6 +134,9 @@
     <ClCompile Include="buttonScript.cpp">
       <Filter>Game\Scripts</Filter>
     </ClCompile>
+    <ClCompile Include="aim.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="render.h">
@@ -228,6 +231,9 @@
     </ClInclude>
     <ClInclude Include="buttonScript.h">
       <Filter>Game\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="aim.h">
+      <Filter>Game\Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

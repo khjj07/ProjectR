@@ -14,6 +14,6 @@ public:
 	Transform* transform;
 	Rectangle2D *shape;
 	enum CollisionTag tag;
-private:
 	bool entered = false;
+private:
 };
