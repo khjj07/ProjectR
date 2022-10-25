@@ -2,15 +2,17 @@
 #include "engine.h"
 #include "shape.h"
 #include "event.h"
+#include "gamePadManager.h"
 class HP : public GameObject
 {
 public:
 	HP();
-	HP(int max, Meterial meterial);
+	HP(int max,int id, Meterial meterial);
 	int Get();
-	void Decrease(int val);
+	bool Decrease(int val);
 	void Increase(int val);
-	Event DeadEvent{};
+	void Reset();
+	int id;
 private:
 	int maxhp;
 	int hp;

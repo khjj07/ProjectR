@@ -44,6 +44,9 @@ void GameStateManager<T>::Previous()
 template<typename T>
 void GameStateManager<T>::Change(GameState<T>* state)
 {
+	if(currentState)
+		currentState->collection.OnDisable();
 	currentState = state;
 	Engine::Instance()->SetCollection(&(currentState->collection));
+	
 }

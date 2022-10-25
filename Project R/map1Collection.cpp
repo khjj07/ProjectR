@@ -13,16 +13,16 @@ Map1Collection::Map1Collection()
 		GameStateManager<MainState>::Instance()->Next();
 		});
 
-	HP* hp1 = new HP(10, Meterial(Color::RED, Color::RED, 5));
+	HP* hp1 = new HP(10,0, Meterial(Color::RED, Color::RED, 5));
 	Aim* aim1 = new Aim(Vector2<int>(3, 3), "aim.txt", Meterial(Color::BLACK, Color::CYAN, 3));
-	Player* player1 = new Player(Vector2<float>(5, 5), Vector2<int>(8, 7), "player.txt", Meterial(Color::BLACK, Color::CYAN, 2), aim1, hp1,GamePadManager::Instance()->p[0], 1);
-	hp1->DeadEvent.addHandler(dead);
+	Player* player1 = new Player(Vector2<float>(5, 5), Vector2<int>(8, 7), "player.txt", Meterial(Color::BLACK, Color::CYAN, 2), aim1, hp1,GamePadManager::Instance()->p[0], 0);
+	player1->script->DeadEvent.addHandler(dead);
 	
 
-	HP* hp2 = new HP(10, Meterial(Color::RED, Color::RED, 5));
+	HP* hp2 = new HP(10,1, Meterial(Color::RED, Color::RED, 5));
 	Aim* aim2 = new Aim(Vector2<int>(3, 3), "aim.txt", Meterial(Color::BLACK, Color::CYAN, 3));
-	Player* player2 = new Player(Vector2<float>(30, 5), Vector2<int>(8, 7), "player.txt", Meterial(Color::BLACK, Color::CYAN, 2), aim2, hp2, GamePadManager::Instance()->p[1], 2);
-	hp2->DeadEvent.addHandler(dead);
+	Player* player2 = new Player(Vector2<float>(30, 5), Vector2<int>(8, 7), "player.txt", Meterial(Color::BLACK, Color::CYAN, 2), aim2, hp2, GamePadManager::Instance()->p[1], 1);
+	player2->script->DeadEvent.addHandler(dead);
 
 
 

@@ -133,6 +133,9 @@
     <ClCompile Include="bullet.cpp" />
     <ClCompile Include="bulletScript.cpp" />
     <ClCompile Include="button.cpp" />
+    <ClCompile Include="card.cpp" />
+    <ClCompile Include="cardSelector.cpp" />
+    <ClCompile Include="cardSelectorScript.cpp" />
     <ClCompile Include="cardUICollection.cpp" />
     <ClCompile Include="collection.cpp" />
     <ClCompile Include="collision.cpp" />
@@ -143,6 +146,7 @@
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="event.cpp" />
     <ClCompile Include="eventHandler.cpp" />
+    <ClCompile Include="gameManager.cpp" />
     <ClCompile Include="gamePad.cpp" />
     <ClCompile Include="gamePadManager.cpp" />
     <ClCompile Include="gameState.cpp" />
@@ -172,6 +176,9 @@
     <ClInclude Include="bulletScript.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="buttonScript.h" />
+    <ClInclude Include="card.h" />
+    <ClInclude Include="cardSelector.h" />
+    <ClInclude Include="cardSelectorScript.h" />
     <ClInclude Include="cardUICollection.h" />
     <ClInclude Include="collision.h" />
     <ClInclude Include="color.h" />
@@ -183,6 +190,7 @@
     <ClInclude Include="engine.h" />
     <ClInclude Include="event.h" />
     <ClInclude Include="eventHandler.h" />
+    <ClInclude Include="gameManager.h" />
     <ClInclude Include="gamePad.h" />
     <ClInclude Include="gamePadManager.h" />
     <ClInclude Include="gameState.h" />
@@ -211,6 +219,7 @@
     <Text Include="aim.txt" />
     <Text Include="button_frame1.txt" />
     <Text Include="button_frame2.txt" />
+    <Text Include="card.txt" />
     <Text Include="content.txt" />
     <Text Include="cursor.txt" />
     <Text Include="defaultBullet.txt" />

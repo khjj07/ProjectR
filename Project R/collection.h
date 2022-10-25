@@ -10,5 +10,7 @@ public:
 	vector<Collision*> collisionList;
 	void Push(GameObject* newObject);
 	void Pop(GameObject* newObject);
+	void OnEnable();
+	void OnDisable();
 };
 

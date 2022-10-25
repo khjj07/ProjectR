@@ -6,11 +6,13 @@
 #include "gamePadManager.h"
 #include "engine.h"
 #include "gameStateManager.h"
-
+#include "player.h"
 
 
 TitleUICollection::TitleUICollection()
 {
+	GamePadManager* gamepadManager = GamePadManager::Instance();
+	gamepadManager->mainController = gamepadManager->p[0];
 	Box* title = new Box(Vector2<float>(Screen::Width / 2 - 20 / 2, Screen::Height / 2 - 20), Vector2<int>(40, 4), "title.txt", Meterial(Color::WHITE, Color::BLACK, 0));
 
 	Button* startbutton = new Button(Vector2<float>(Screen::Width / 2 - 300 / 2, Screen::Height / 2 - 10), Vector2<int>(300, 15), "button_frame1.txt", Meterial(Color::GREEN, Color::WHITE, 0));
@@ -28,7 +30,7 @@ TitleUICollection::TitleUICollection()
 		});
 	quitbutton->transform->GetComponent<ButtonScript>()->OnClickEvent.addHandler(quit);
 
-	Cursor * cursor = new Cursor(Vector2<float>(1, 80), Vector2<int>(3, 4), "cursor.txt", Meterial(Color::BLUE, Color::BLUE, 1), GamePadManager::Instance()->p[0]);
+	Cursor * cursor = new Cursor(Vector2<float>(1, 80), Vector2<int>(3, 4), "cursor.txt", Meterial(Color::BLUE, Color::BLUE, 1), GamePadManager::Instance()->mainController);
 
 	Push(title);
 	Push(cursor);

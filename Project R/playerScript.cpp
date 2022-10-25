@@ -4,9 +4,12 @@
 #include <conio.h>
 #include<windows.h>
 #include "defaultBullet.h"
+#include "cardSelector.h"
 #include "timer.h"
+#include "gameManager.h"
+#include "bulletScript.h"
 
-PlayerScript::PlayerScript(Transform* t, GameObject* go, Aim* a,HP *h, GamePad* pad, int i)
+PlayerScript::PlayerScript(Transform* t, Player* go, Aim* a,HP *h, GamePad* pad, int i)
 {
 	transform = t;
 	velocity = Vector2<float>(0, 0);
@@ -19,6 +22,11 @@ PlayerScript::PlayerScript(Transform* t, GameObject* go, Aim* a,HP *h, GamePad* 
 void PlayerScript::Start()
 {
 
+}
+void PlayerScript::OnEnable()
+{
+	hp->Reset();
+	aim->Reset();
 }
 void PlayerScript::Move()
 {
@@ -175,11 +183,17 @@ void PlayerScript::OnCollisionStay(Collision* other)
 	}
 	if (other->tag == BulletTag)
 	{
-		auto bullet = other->transform->GetComponent<BulletScript>();
+		BulletScript* bullet = other->transform->GetComponent<BulletScript>();
 		if (bullet->id != id)
 		{
-			hp->Decrease(bullet->damage);
-			other->Destory();
+			if (hp->Decrease(bullet->damage))
+			{
+				other->Destory();
+				auto gamepadManager = GamePadManager::Instance();
+				GameManager::Instance()->selector = this->gameObject;
+				gamepadManager->mainController = gamepadManager->p[id];
+				DeadEvent();
+			}
 		}
 	}
 }

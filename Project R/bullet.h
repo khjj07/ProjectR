@@ -10,6 +10,7 @@ public:
 	Bullet(Vector2<float> p, Vector2<float>direction,int id);
 	Bullet(Vector2<float> p, Vector2<int> s, string filename, Meterial meterial,BulletScript* script);
 	int damage;
+	int id;
 	BulletScript* script;
 	void Shoot(Vector2<float> dir);
 private:

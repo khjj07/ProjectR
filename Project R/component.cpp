@@ -27,6 +27,16 @@ void Component::OnDestroy()
 
 }
 
+void Component::OnEnable()
+{
+
+}
+
+void Component::OnDisable()
+{
+
+}
+
 void Component::OnCollisionEnter(Collision* other) 
 {
 

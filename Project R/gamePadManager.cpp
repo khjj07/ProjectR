@@ -1,5 +1,5 @@
 #include "gamePadManager.h"
-
+#include "player.h"
 
 GamePadManager::GamePadManager()
 {

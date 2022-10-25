@@ -45,6 +45,12 @@
     <Filter Include="Util\Event">
       <UniqueIdentifier>{60bc7414-24c5-41dd-b52b-6d7f1a45de44}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Scripts\Card">
+      <UniqueIdentifier>{945f89a3-4bd4-4c61-afea-ab52c2b5b078}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Manager">
+      <UniqueIdentifier>{e1e8506f-1c3a-4213-a41a-1188822eeabd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -157,6 +163,18 @@
     </ClCompile>
     <ClCompile Include="cardUICollection.cpp">
       <Filter>Game\Collection</Filter>
+    </ClCompile>
+    <ClCompile Include="cardSelector.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="card.cpp">
+      <Filter>Game\Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="cardSelectorScript.cpp">
+      <Filter>Game\Scripts\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="gameManager.cpp">
+      <Filter>Game\Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -277,6 +295,18 @@
     <ClInclude Include="cardUICollection.h">
       <Filter>Game\Collection</Filter>
     </ClInclude>
+    <ClInclude Include="cardSelector.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="card.h">
+      <Filter>Game\Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="cardSelectorScript.h">
+      <Filter>Game\Scripts\Card</Filter>
+    </ClInclude>
+    <ClInclude Include="gameManager.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="button_frame1.txt">
@@ -310,6 +340,9 @@
       <Filter>Shape</Filter>
     </Text>
     <Text Include="wall2.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="card.txt">
       <Filter>Shape</Filter>
     </Text>
   </ItemGroup>

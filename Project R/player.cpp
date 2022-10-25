@@ -11,11 +11,11 @@ Player::Player(Vector2<float> p, Vector2<int> s, string filename, Meterial meter
 	Rectangle2D *collisionShape = new Rectangle2D(size);
 	//¼±¾ð  ¹× addComponent
 
-
+	gamepad = pad;
 	transform = new Transform(pos,size, this, &componentList);
 	renderer = new Renderer(transform, Shape::Load(filename) , meterial);
 	collision = new Collision(transform, this, collisionShape, PlayerTag);
-	PlayerScript* script = new PlayerScript(transform,this, aim,hp,pad, i);
+	script = new PlayerScript(transform,this, aim,hp,pad, i);
 	AddComponent(renderer);
 	AddComponent(transform);
 	AddComponent(collision);

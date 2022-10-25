@@ -19,3 +19,8 @@ void Aim::Move()
 	velocity.y = direction.y * speed;
 	velocity.x = direction.x * speed;
 }
+
+void Aim::Reset()
+{
+	direction = Vector2<float>(1,-1);
+}

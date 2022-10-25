@@ -21,6 +21,8 @@ public:
 	void Update(float  dt);
 	void OnDestroy();
 	void Destory();
+	void OnEnable();
+	void OnDisable();
 	void OnCollisionEnter(Collision* other);
 	void OnCollisionStay(Collision* other);
 	void OnCollisionExit(Collision* other);

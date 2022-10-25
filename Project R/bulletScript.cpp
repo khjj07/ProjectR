@@ -9,7 +9,7 @@ BulletScript::BulletScript(Transform* t, GameObject* go, Vector2<float> g, float
 	gravity = g;
 	fraction = f;
 	speed = spd;
-	damage = dmg;
+	damage = 100;
 	lifetime = lt;
 	id = i;
 	gameObject = go;

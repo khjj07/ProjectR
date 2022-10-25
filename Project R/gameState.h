@@ -28,7 +28,7 @@ GameState<T>::GameState()
 template <typename T>
 void GameState<T>::OnEnable()
 {
-	
+
 }
 template <typename T>
 void GameState<T>::OnDisable()

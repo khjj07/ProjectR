@@ -8,6 +8,8 @@ class Player :public GameObject
 {
 public:
 	Player(Vector2<float> p, Vector2<int> s, string filename, Meterial meterial, Aim *aim, HP* hp, GamePad* pad, int i);
+	GamePad* gamepad;
+	PlayerScript* script;
 private:
 
 };

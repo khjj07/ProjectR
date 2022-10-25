@@ -19,7 +19,6 @@ thread *Timer::Delay(float time, bool loop, function<void()> x)
 			}
 			x();
 		} while (loop);
-		
 		});
 	timer.detach();
 	return &timer;

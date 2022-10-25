@@ -24,6 +24,23 @@ void GameObject::Destory()
 {
 	Engine::Instance()->Destroy(this);
 }
+
+void GameObject::OnDisable()
+{
+	vector<Component*>::iterator component = componentList.begin();
+	for (; component < componentList.end(); component++)
+	{
+		(*component)->OnDisable();
+	}
+}
+void GameObject::OnEnable()
+{
+	vector<Component*>::iterator component = componentList.begin();
+	for (; component < componentList.end(); component++)
+	{
+		(*component)->OnEnable();
+	}
+}
 void GameObject::OnCollisionEnter(Collision* other) 
 {
 	vector<Component*>::iterator component = componentList.begin();

@@ -13,6 +13,8 @@ public:
 	virtual void Update(float  dt);
 	void Destory();
 	virtual void OnDestroy();
+	virtual void OnEnable();
+	virtual void OnDisable();
 	virtual void OnCollisionEnter(Collision* other);
 	virtual void OnCollisionStay(Collision* other);
 	virtual void OnCollisionExit(Collision* other);

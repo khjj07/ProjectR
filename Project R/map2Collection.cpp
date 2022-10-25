@@ -6,13 +6,13 @@
 #include "gamePadManager.h"
 Map2Collection::Map2Collection()
 {
-	HP* hp1 = new HP(10, Meterial(Color::RED, Color::RED, 5));
+	HP* hp1 = new HP(10,0, Meterial(Color::RED, Color::RED, 5));
 	Aim* aim1 = new Aim(Vector2<int>(3, 3), "aim.txt", Meterial(Color::BLACK, Color::CYAN, 3));
-	Player* player1 = new Player(Vector2<float>(5, 5), Vector2<int>(8, 7), "player.txt", Meterial(Color::BLACK, Color::CYAN, 2), aim1, hp1, GamePadManager::Instance()->p[0], 1);
+	Player* player1 = new Player(Vector2<float>(5, 5), Vector2<int>(8, 7), "player.txt", Meterial(Color::BLACK, Color::CYAN, 2), aim1, hp1, GamePadManager::Instance()->p[0], 0);
 
-	HP* hp2 = new HP(10, Meterial(Color::RED, Color::RED, 5));
+	HP* hp2 = new HP(10,1, Meterial(Color::RED, Color::RED, 5));
 	Aim* aim2 = new Aim(Vector2<int>(3, 3), "aim.txt", Meterial(Color::BLACK, Color::CYAN, 3));
-	Player* player2 = new Player(Vector2<float>(30, 5), Vector2<int>(8, 7), "player.txt", Meterial(Color::BLACK, Color::CYAN, 2), aim2, hp2, GamePadManager::Instance()->p[1], 2);
+	Player* player2 = new Player(Vector2<float>(30, 5), Vector2<int>(8, 7), "player.txt", Meterial(Color::BLACK, Color::CYAN, 2), aim2, hp2, GamePadManager::Instance()->p[1], 1);
 
 	//상하좌우 막는 벽
 	Floor* obj1 = new Floor(Vector2<float>(1, 99), Vector2<int>(380, 1), "floor2.txt", Meterial(Color::GREEN, Color::YELLOW, 1));

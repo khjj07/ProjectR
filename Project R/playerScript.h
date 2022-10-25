@@ -4,11 +4,12 @@
 #include "collision.h"
 #include "aim.h"
 #include "hp.h"
+#include "event.h"
 class Component;
 class PlayerScript:public Component
 {
 public:
-	PlayerScript(Transform *t, GameObject* go, Aim *a,HP* h,GamePad* pad, int i);
+	PlayerScript(Transform *t, Player* go, Aim *a,HP* h,GamePad* pad, int i);
 	~PlayerScript();
 	virtual void Update(float  dt);
 	virtual void Start();
@@ -16,6 +17,8 @@ public:
 	void Move();
 	void Jump();
 	virtual void OnDestroy();
+	virtual void OnEnable();
+	
 	virtual void  OnCollisionStay(Collision* other);
 	Vector2<float> direction;
 	Vector2<float> velocity;
@@ -32,6 +35,8 @@ public:
 	HP *hp;
 	GamePad* controller;
 	Aim * aim;
+	Event DeadEvent{};
+	Player* gameObject;
 private:
 	Transform* transform;
 };

@@ -1,13 +1,14 @@
 #include "hp.h"
-
+#include "player.h"
 HP::HP()
 {
 
 }
-HP::HP(int max,Meterial meterial)
+HP::HP(int max, int i, Meterial meterial)
 {
 	maxhp = max;
 	hp = max;	
+	id = i;
 	//¼±¾ð  ¹× addComponent
 	transform = new Transform(Vector2<float>(0,0), Vector2<int>(0, 0), this, &componentList);
 	renderer = new Renderer(transform, string(""), meterial);
@@ -30,17 +31,22 @@ void HP::Increase(int val)
 	renderer->shape = shape;
 }
 
-
-void HP::Decrease(int val)
+bool HP::Decrease(int val)
 {
 	hp = hp -val <0 ? 0 : hp - val;
 	if (hp <= 0)
 	{
-		DeadEvent();
+		return true;
 	}
-		
+	
 	string shape("");
 	for (int i = 0; i < hp; i++)
 		shape.append("¡á");
 	renderer->shape = shape;
+	return false;
+}
+
+void HP::Reset()
+{
+	Increase(maxhp);
 }

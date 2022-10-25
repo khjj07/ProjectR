@@ -12,6 +12,8 @@ DefaultBullet::DefaultBullet(Vector2<float> p, Vector2<float> direction, int i)
 	renderer = new Renderer(transform, Shape::Load("defaultBullet.txt"), Meterial(Color::LIGHTRED, Color::LIGHTRED,2));
 	collision = new Collision(transform, this, collisionShape, BulletTag);
 	script = new BulletScript(transform, this, Vector2<float>(0,1), 0, 200, 3, i, 1);
+	id = i;
+	damage = 1;
 	AddComponent(script);
 	AddComponent(renderer);
 	AddComponent(transform);

@@ -26,7 +26,6 @@ void Engine::Run()
 			elapsed = 0;
 		else
 			elapsed -= 30;
-		currentCollection = nextCollection;
 		if (objectBuffer)
 		{
 			currentCollection->Push(objectBuffer);
@@ -39,6 +38,12 @@ void Engine::Run()
 			delete removeObjectBuffer;
 			removeObjectBuffer = nullptr;
 		}
+		if (nextCollection)
+		{
+			currentCollection = nextCollection;
+			currentCollection->OnEnable();
+		}
+		nextCollection = nullptr;
 		Start();
 		QueryPerformanceCounter((LARGE_INTEGER*)&s);
 		Update(dt);
