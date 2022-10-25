@@ -14,7 +14,7 @@ Renderer::Renderer(Transform* t, string s, Meterial meterial)
 
 void Renderer::Draw()
 {
-	Render::Instance()->Write((int)transform->position.x, (int)transform->position.y, textColor, backgroundColor,shape, depth);
+	Render::Instance()->Write(round(transform->position.x), round(transform->position.y), textColor, backgroundColor,shape, depth);
 }
 
 void Renderer::SetBackgroundColor(int color)

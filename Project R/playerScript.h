@@ -20,6 +20,7 @@ public:
 	Vector2<float> direction;
 	Vector2<float> velocity;
 	Vector2<float> gravity = Vector2<float>(0,1);
+	Vector2<int> contactDirection;
 	float fraction =0.05;
 	float speed = 75;
 	float jumpforce = 75;

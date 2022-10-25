@@ -25,6 +25,7 @@ int main()
 	GameState<MainState> title;
 	GameState<MainState> ingame;
 	title.nextState = &ingame;
+	ingame.nextState = &title;
 	//MainState-title
 	title.SetCollection(*titleUI);
 	//MainState-ingame

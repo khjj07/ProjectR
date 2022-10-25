@@ -148,6 +148,7 @@
     <ClCompile Include="gameStateManager.cpp" />
     <ClCompile Include="hp.cpp" />
     <ClCompile Include="map1Collection.cpp" />
+    <ClCompile Include="map2Collection.cpp" />
     <ClCompile Include="meterial.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="floor.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="Box.h" />
     <ClInclude Include="hp.h" />
     <ClInclude Include="map1Collection.h" />
+    <ClInclude Include="map2Collection.h" />
     <ClInclude Include="meterial.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="floor.h" />
@@ -214,6 +216,7 @@
     <Text Include="player.txt" />
     <Text Include="title.txt" />
     <Text Include="wall1.txt" />
+    <Text Include="wall2.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -34,6 +34,11 @@ void HP::Increase(int val)
 void HP::Decrease(int val)
 {
 	hp = hp -val <0 ? 0 : hp - val;
+	if (hp <= 0)
+	{
+		DeadEvent();
+	}
+		
 	string shape("");
 	for (int i = 0; i < hp; i++)
 		shape.append("бс");

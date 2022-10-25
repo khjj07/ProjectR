@@ -85,7 +85,7 @@ void PlayerScript::Input()
 	{
 		if (_kbhit())
 		{
-			if (GetAsyncKeyState('A') & 0x8001)
+			if (GetAsyncKeyState('A') & 0x8001 )
 			{
 				direction.x = -1;
 				Move();
@@ -153,11 +153,12 @@ void PlayerScript::Update(float dt)
 
 	velocity = velocity + gravity;
 	velocity.x = velocity.x + velocity.x * (-fraction);
-
+	
 }
 
 void PlayerScript::OnCollisionStay(Collision* other)
 {
+	
 	if (other->tag == FloorTag)
 	{
 		if (transform->position.y - other->transform->position.y < 0)
@@ -169,8 +170,8 @@ void PlayerScript::OnCollisionStay(Collision* other)
 	}
 	if (other->tag == WallTag)
 	{
-		transform->position.x = transform->position.x+(transform->position.x - other->transform->position.x);
-		velocity.x = 0;
+		transform->position.x = transform->position.x + (transform->position.x - other->transform->position.x);
+		velocity.x = Sign(transform->position.x - other->transform->position.x) * speed;
 	}
 	if (other->tag == BulletTag)
 	{

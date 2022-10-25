@@ -10,7 +10,11 @@
 #include <sstream>
 #include "color.h"
 #include "singleton.h"
+#ifndef Sign 
+#define Sign(x) (x > 0 ? 1 : -1)
+#endif // !1
 
+ 
 
 
 using namespace std;

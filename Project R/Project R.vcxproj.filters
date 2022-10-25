@@ -152,6 +152,9 @@
     <ClCompile Include="hp.cpp">
       <Filter>Game\Object</Filter>
     </ClCompile>
+    <ClCompile Include="map2Collection.cpp">
+      <Filter>Game\Collection</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="render.h">
@@ -265,6 +268,9 @@
     <ClInclude Include="hp.h">
       <Filter>Game\Object</Filter>
     </ClInclude>
+    <ClInclude Include="map2Collection.h">
+      <Filter>Game\Collection</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="button_frame1.txt">
@@ -295,6 +301,9 @@
       <Filter>Shape</Filter>
     </Text>
     <Text Include="wall1.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="wall2.txt">
       <Filter>Shape</Filter>
     </Text>
   </ItemGroup>
