@@ -19,7 +19,7 @@ public:
 	Vector2<float> direction;
 	Vector2<float> velocity;
 	float fraction = 1;
-	float speed = 50;
+	float speed = 60;
 	GamePad* controller;
 	ButtonScript* EnterTarget;
 private:

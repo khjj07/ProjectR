@@ -133,6 +133,7 @@
     <ClCompile Include="bullet.cpp" />
     <ClCompile Include="bulletScript.cpp" />
     <ClCompile Include="button.cpp" />
+    <ClCompile Include="cardUICollection.cpp" />
     <ClCompile Include="collection.cpp" />
     <ClCompile Include="collision.cpp" />
     <ClCompile Include="component.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="bulletScript.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="buttonScript.h" />
+    <ClInclude Include="cardUICollection.h" />
     <ClInclude Include="collision.h" />
     <ClInclude Include="color.h" />
     <ClInclude Include="component.h" />

@@ -7,6 +7,7 @@
 #include "meterial.h"
 #include "render.h"
 #include "screen.h"
+#include "event.h"
 
 enum EngineState
 {
@@ -15,6 +16,7 @@ enum EngineState
 	Restart
 };
 class GameObject;
+
 class Engine : public Singleton<Engine>
 {
 public:

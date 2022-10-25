@@ -79,13 +79,6 @@ void Engine::Update(float dt) {
 	GamePadManager::Instance()->Update();
 
 	vector<GameObject *>::iterator object = currentCollection->gameObjectList.begin();
-	
-	for (; object < currentCollection->gameObjectList.end(); object++)
-	{
-		(*object)->Update(dt);
-	}
-
-	object = currentCollection->gameObjectList.begin();
 	for (; object < currentCollection->gameObjectList.end(); object++)
 	{
 		vector<Collision*>::iterator other = currentCollection->collisionList.begin();
@@ -103,6 +96,13 @@ void Engine::Update(float dt) {
 			}
 		}
 	}
+	object = currentCollection->gameObjectList.begin();
+	for (; object < currentCollection->gameObjectList.end(); object++)
+	{
+		(*object)->Update(dt);
+	}
+
+	
 }
 
 void Engine::SetCollection(Collection *col)

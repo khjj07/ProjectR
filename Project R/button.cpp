@@ -1,6 +1,6 @@
 #include "button.h"
 
-Button::Button(Vector2<float> p, Vector2<int> s, string filename1, string filename2, Meterial meterial)
+Button::Button(Vector2<float> p, Vector2<int> s, string filename1, Meterial meterial)
 {
 	//transform에 들어갈 변수
 	Vector2<float> pos(p.x, p.y);
@@ -12,9 +12,7 @@ Button::Button(Vector2<float> p, Vector2<int> s, string filename1, string filena
 	transform = new Transform(pos, size, this, &componentList);
 	renderer = new Renderer(transform, Shape::Load(filename1), meterial);
 	collision = new Collision(transform,this, collisionShape, ButtonTag);
-	content = new Renderer(transform, Shape::Load(filename2), meterial);
 	AddComponent(renderer);
 	AddComponent(transform);
 	AddComponent(collision);
-	AddComponent(content);
 }

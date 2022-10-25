@@ -9,6 +9,7 @@
 #include "titleUICollection.h"
 #include "shape.h"
 
+int EventHandler::counter = 0;
 int main()
 {
 	GamePadManager *gamepadManager = GamePadManager::Instance();

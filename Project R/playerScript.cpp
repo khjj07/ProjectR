@@ -47,23 +47,23 @@ void PlayerScript::Input()
 		}
 
 		if (state.Gamepad.sThumbRX <= -aim->response)
-		{ // аб
-			aim->direction.x -= aim->speed/ aim->response;
+		{ 
+			aim->direction.x -= aim->speed;
 			aim->Move();
 		}
 		if (state.Gamepad.sThumbRX >= aim->response)
-		{ // ©Л
-			aim->direction.x += aim->speed/ aim->response;
+		{
+			aim->direction.x += aim->speed;
 			aim->Move();
 		}
 		if (state.Gamepad.sThumbRY <= -aim->response)
 		{ // аб
-			aim->direction.y += aim->speed/ aim->response;
+			aim->direction.y += aim->speed;
 			aim->Move();
 		}
 		if (state.Gamepad.sThumbRY >= aim->response)
 		{ // ©Л
-			aim->direction.y -= aim->speed/ aim->response;
+			aim->direction.y -= aim->speed;
 			aim->Move();
 		}
 
@@ -74,9 +74,9 @@ void PlayerScript::Input()
 
 		if (attackable && state.Gamepad.wButtons == XINPUT_GAMEPAD_RIGHT_SHOULDER)
 		{ // ©Л
-			Engine::Instance()->Instantiate(new DefaultBullet(transform->position, aim->direction, id));
+			Engine::Instance()->Instantiate(new DefaultBullet(transform->position, aim->position.Normalize(), id));
 			attackable = false;
-			Timer::Delay(1, false, [this]() {
+			Timer::Delay(attackDelay, false, [this]() {
 				attackable = true;
 				});
 		}
@@ -144,7 +144,7 @@ void PlayerScript::Update(float dt)
 	transform->position = transform->position + velocity * dt;
 
 	aim->direction = aim->direction.Normalize();
-	aim->position.x =  aim->direction.x*aim->range * 2;
+	aim->position.x =  aim->direction.x*aim->range*2;
 	aim->position.y = aim->direction.y * aim->range;
 	aim->transform->position = transform->position + aim->position;
 	
@@ -166,12 +166,12 @@ void PlayerScript::OnCollisionStay(Collision* other)
 			jumpable = true;
 		}
 		transform->position.y = transform->position.y +(transform->position - other->transform->position).Normalize().y;
-		velocity.y = 1;
+		velocity.y = 0;
 	}
 	if (other->tag == WallTag)
 	{
-		transform->position.x = transform->position.x + (transform->position.x - other->transform->position.x);
-		velocity.x = Sign(transform->position.x - other->transform->position.x) * speed;
+		transform->position.x = transform->position.x + Sign(transform->position.x - other->transform->position.x);
+		velocity.x =  0;
 	}
 	if (other->tag == BulletTag)
 	{

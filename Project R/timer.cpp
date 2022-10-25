@@ -1,5 +1,7 @@
 #include "timer.h"
+#include "component.h"
 #include <thread>
+class Component;
 thread *Timer::Delay(float time, bool loop, function<void()> x)
 {
 	thread timer([x,time,loop]() {
@@ -10,7 +12,7 @@ thread *Timer::Delay(float time, bool loop, function<void()> x)
 			{
 				clock_t end = clock();
 				float t = (end - start) / CLOCKS_PER_SEC;
-				if (t == time)
+				if (t >= time)
 				{
 					break;
 				}

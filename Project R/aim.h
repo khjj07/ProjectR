@@ -10,9 +10,9 @@ public:
 	Vector2<float> velocity;
 	Vector2<float> position;
 	float fraction=0.5;
-	float speed = 500;
+	float speed = 0.05;
 	float range = 15;
-	float response = 10000;
+	float response = 32000;
 	void Move();
 private:
 
