@@ -13,7 +13,7 @@ int main()
 {
 	GamePadManager *gamepadManager = GamePadManager::Instance();
 	gamepadManager->AddPad(0);
-	//gamepadManager->AddPad(1);
+	gamepadManager->AddPad(1);
 	Engine *engine = Engine::Instance();
 
 	//오브젝트 선언

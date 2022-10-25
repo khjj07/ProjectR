@@ -7,7 +7,7 @@
 class Cursor :public GameObject
 {
 public:
-	Cursor(int pos_x, int pos_y, int size_x, int size_y, string shape, Meterial meterial, GamePad* pad);
+	Cursor(Vector2<float> p, Vector2<int> s, string filename, Meterial meterial, GamePad* pad);
 private:
 
 };

@@ -8,9 +8,9 @@ class Component;
 class ButtonScript :public Component
 {
 public:
-	ButtonScript(Transform* t);
+	ButtonScript(Transform* t, GameObject* go);
 	void OnClick();
-	virtual void Update(double  dt);
+	virtual void Update(float  dt);
 	virtual void Start();
 	virtual void  OnCollisionStay(Collision* other);
 

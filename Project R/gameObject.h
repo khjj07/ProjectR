@@ -7,6 +7,9 @@
 
 using namespace std;
 
+class Transform;
+class Renderer;
+class Collision;
 
 class GameObject
 {
@@ -15,12 +18,9 @@ public:
 	~GameObject();
 	void Awake();
 	void Start();
-	void Update(double  dt);
-	void OnEnable();
-	void OnDisable();
-	void Enable();
-	void Disable();
+	void Update(float  dt);
 	void OnDestroy();
+	void Destory();
 	void OnCollisionEnter(Collision* other);
 	void OnCollisionStay(Collision* other);
 	void OnCollisionExit(Collision* other);

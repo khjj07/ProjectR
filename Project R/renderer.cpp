@@ -2,6 +2,7 @@
 #include "renderer.h"
 #include "render.h"
 
+
 Renderer::Renderer(Transform* t, string s, Meterial meterial)
 {
 	transform = t;
@@ -27,7 +28,7 @@ void Renderer::SetTextColor(int color)
 }
 
 
-void Renderer::Update(double dt)
+void Renderer::Update(float dt)
 {
 	Draw();
 }

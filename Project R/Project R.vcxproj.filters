@@ -116,9 +116,6 @@
     <ClCompile Include="shape.cpp">
       <Filter>Util</Filter>
     </ClCompile>
-    <ClCompile Include="fps.cpp">
-      <Filter>Game\Object</Filter>
-    </ClCompile>
     <ClCompile Include="Box.cpp">
       <Filter>Game\Object\UI</Filter>
     </ClCompile>
@@ -137,6 +134,24 @@
     <ClCompile Include="cursorScript.cpp">
       <Filter>Game\Scripts</Filter>
     </ClCompile>
+    <ClCompile Include="bullet.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="bulletScript.cpp">
+      <Filter>Game\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="defaultBullet.cpp">
+      <Filter>Game\Prefab</Filter>
+    </ClCompile>
+    <ClCompile Include="timer.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="wall.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="hp.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="render.h">
@@ -144,9 +159,6 @@
     </ClInclude>
     <ClInclude Include="screen.h">
       <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="define.h">
-      <Filter>Main</Filter>
     </ClInclude>
     <ClInclude Include="singleton.h">
       <Filter>Util</Filter>
@@ -214,9 +226,6 @@
     <ClInclude Include="color.h">
       <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="fps.h">
-      <Filter>Game\Object</Filter>
-    </ClInclude>
     <ClInclude Include="Box.h">
       <Filter>Game\Object\UI</Filter>
     </ClInclude>
@@ -234,6 +243,27 @@
     </ClInclude>
     <ClInclude Include="cursorScript.h">
       <Filter>Game\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="bullet.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="bulletScript.h">
+      <Filter>Game\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="defaultBullet.h">
+      <Filter>Game\Prefab</Filter>
+    </ClInclude>
+    <ClInclude Include="timer.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="wall.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="hp.h">
+      <Filter>Game\Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -256,6 +286,15 @@
       <Filter>Shape</Filter>
     </Text>
     <Text Include="button_frame2.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="aim.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="defaultBullet.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="wall1.txt">
       <Filter>Shape</Filter>
     </Text>
   </ItemGroup>

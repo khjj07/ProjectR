@@ -13,27 +13,25 @@ int EventHandler::counter = 0;
 
 TitleUICollection::TitleUICollection()
 {
-	Box* title = new Box(Screen::Width / 2 - 20 / 2, Screen::Height / 2 - 20, 40, 4, "title.txt", Meterial(Color::WHITE, Color::BLACK, 0));
+	Box* title = new Box(Vector2<float>(Screen::Width / 2 - 20 / 2, Screen::Height / 2 - 20), Vector2<int>(40, 4), "title.txt", Meterial(Color::WHITE, Color::BLACK, 0));
 
-	Button* startbutton = new Button(Screen::Width/2-300/2, Screen::Height/2-10, 300, 15, "button_frame1.txt","Content.txt", Meterial(Color::GREEN, Color::WHITE,0));
-	startbutton->AddComponent(new ButtonScript(startbutton->transform));
+	Button* startbutton = new Button(Vector2<float>(Screen::Width / 2 - 300 / 2, Screen::Height / 2 - 10), Vector2<int>(300, 15), "button_frame1.txt", "Content.txt", Meterial(Color::GREEN, Color::WHITE, 0));
+	startbutton->AddComponent(new ButtonScript(startbutton->transform, startbutton));
 	EventHandler start([]() {
 		GameStateManager<MainState>::Instance()->Next();
-	});
+		});
 	startbutton->transform->GetComponent<ButtonScript>()->OnClickEvent.addHandler(start);
 
 
-	Button* quitbutton = new Button(Screen::Width / 2 - 300 / 2, Screen::Height / 2+10, 300, 15, "button_frame1.txt", "Content.txt", Meterial(Color::GREEN, Color::WHITE,0));
-	quitbutton->AddComponent(new ButtonScript(quitbutton->transform));
+	Button * quitbutton = new Button(Vector2<float>(Screen::Width / 2 - 300 / 2, Screen::Height / 2 + 10), Vector2<int>(300, 15), "button_frame1.txt", "Content.txt", Meterial(Color::GREEN, Color::WHITE, 0));
+	quitbutton->AddComponent(new ButtonScript(quitbutton->transform, startbutton));
 	EventHandler quit([]() {
 		GameStateManager<MainState>::Instance()->Next();
-	});
+		});
 	quitbutton->transform->GetComponent<ButtonScript>()->OnClickEvent.addHandler(quit);
 
-	Cursor* cursor = new Cursor(1, 80, 3, 4, "cursor.txt", Meterial(Color::BLUE, Color::BLUE, 1), GamePadManager::Instance()->p[0]);
-	FPS* fps = new FPS(10,10);
+	Cursor * cursor = new Cursor(Vector2<float>(1, 80), Vector2<int>(3, 4), "cursor.txt", Meterial(Color::BLUE, Color::BLUE, 1), GamePadManager::Instance()->p[0]);
 
-	Push(fps);
 	Push(title);
 	Push(cursor);
 	Push(startbutton);

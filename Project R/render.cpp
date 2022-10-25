@@ -76,6 +76,7 @@ void Render::Clear()
 	{
 		for (int j = 0; j < Screen::Width; j++)
 		{
+			StringBuffer[i * Screen::Width + j].Char.UnicodeChar = ' ';
 			StringBuffer[i * Screen::Width + j].Attributes = NULL;
 			DepthBuffer[i * Screen::Width + j] = -9999;
 		}
@@ -109,7 +110,7 @@ void Render::Write(int x, int y, int textColor,int backgroundColor, string str, 
 	{
 		for (int i = 0; i < (* iter).size(); i++)
 		{
-			if(x + i + (y + k) * Screen::Width< Screen::Height*Screen::Width)
+			if( x+i+(y+k) * Screen::Width > 0 && x + i + (y + k) * Screen::Width < Screen::Width*Screen::Height && x+i>=0 && y+k>=0 && x + i < Screen::Width && y + k < Screen::Height)
 			{
 				if (DepthBuffer[x + i + (y + k) * Screen::Width] <= depth && ((*iter)[i] != ' '))
 				{

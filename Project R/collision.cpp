@@ -1,12 +1,12 @@
-#include "component.h"
+﻿#include "component.h"
 #include "collision.h"
 #include "transform.h"
 #include "screen.h"
 #include "engine.h"
 
-Collision::Collision(Transform *t, Rectangle2D* s,enum CollisionTag id)
+Collision::Collision(Transform *t, GameObject* go, Rectangle2D* s,enum CollisionTag id)
 {
-
+	gameObject = go;
 	shape = s;
 	transform = t;
 	tag = id;
@@ -45,7 +45,7 @@ bool Collision::CollisionStay(Collision* other)
 
 	Vector2<int>A2 = shape->A + transform->position.toInt();
 	Vector2<int>B2 = shape->B + transform->position.toInt();
-	check = !((A1.x <= A2.x && B1.x <= A2.x) || (A1.y <= A2.y && B1.y <= A2.y) || (A1.x >= B2.x && B1.x >= B2.x) || (A1.y >= B2.y && B1.y >= B2.y));
+	check = !((A1.x < A2.x&& B1.x < A2.x) || (A1.y < A2.y&& B1.y < A2.y) || (A1.x > B2.x && B1.x > B2.x) || (A1.y > B2.y && B1.y > B2.y));
 	return check;
 }
 

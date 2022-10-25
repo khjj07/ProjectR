@@ -1,5 +1,7 @@
 #include "component.h"
 #include "collision.h"
+#include "engine.h"
+#include "gameObject.h"
 Component::Component()
 {
 	Awake();
@@ -11,30 +13,11 @@ void Component::Awake() {
 void Component::Start() {
 
 }
-
-void Component::Update(double dt)
+void Component::Destory()
 {
-
+	Engine::Instance()->Destroy(this->gameObject);
 }
-
-void Component::Enable()
-{
-	isEnabled = true;
-	OnEnable();
-}
-
-void Component::Disable()
-{
-	isEnabled = false;
-	OnDisable();
-}
-
-void Component::OnEnable() 
-{
-	
-}
-
-void Component::OnDisable() 
+void Component::Update(float dt)
 {
 
 }

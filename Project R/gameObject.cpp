@@ -1,5 +1,8 @@
 #include "gameObject.h"
 #include "engine.h"
+#include "transform.h"
+#include "renderer.h"
+#include "collision.h"
 GameObject::GameObject()
 {
 
@@ -16,6 +19,10 @@ void GameObject::Start() {
 	{
 		(*component)->Start();
 	}
+}
+void GameObject::Destory()
+{
+	Engine::Instance()->Destroy(this);
 }
 void GameObject::OnCollisionEnter(Collision* other) 
 {
@@ -42,41 +49,20 @@ void GameObject::OnCollisionExit(Collision* other)
 	}
 }
 
-void GameObject::Update(double  dt) {
+void GameObject::Update(float  dt) {
 	vector<Component*>::iterator component = componentList.begin();
 	for (; component < componentList.end(); component++)
 	{
 		(* component)->Update(dt);
 	}
 }
-void GameObject::OnEnable() {
-	
-}
-void GameObject::OnDisable() {
-
-}
-void GameObject::Enable() {
-	isEnabled = true;
-	vector<Component*>::iterator component = componentList.begin();
-	for (; component < componentList.end(); component++)
-	{
-		(* component)->Enable();
-	}
-	OnEnable();
-}
-
-void GameObject::Disable() {
-	isEnabled = false;
-	vector<Component*>::iterator component = componentList.begin();
-	for (; component < componentList.end(); component++)
-	{
-		(*component)->Disable();
-	}
-	OnDisable();
-}
 
 void GameObject::OnDestroy() {
-
+	vector<Component*>::iterator component = componentList.begin();
+	for (; component < componentList.end(); component++)
+	{
+		(*component)->OnDestroy();
+	}
 }
 
 

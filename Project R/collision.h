@@ -7,7 +7,7 @@
 class Collision :public Component
 {
 public:
-	Collision(Transform* t, Rectangle2D *s, enum CollisionTag id);
+	Collision(Transform* t,GameObject *go, Rectangle2D *s, enum CollisionTag id);
 	bool CollisionEnter(Collision* other);
 	bool CollisionStay(Collision* other);
 	bool CollisionExit(Collision* other);
@@ -15,5 +15,6 @@ public:
 	Rectangle2D *shape;
 	enum CollisionTag tag;
 	bool entered = false;
+	Vector2<float> normal;
 private:
 };

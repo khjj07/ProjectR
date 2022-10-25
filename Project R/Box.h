@@ -4,7 +4,7 @@
 class Box :public GameObject
 {
 public:
-	Box(int pos_x, int pos_y, int size_x, int size_y, string filename, Meterial meterial);
+	Box(Vector2<float> p, Vector2<int> s, string filename, Meterial meterial);
 private:
 
 };

@@ -43,7 +43,7 @@ void FPSScript::Update(double dt)
 FPS::FPS(int x, int y)
 {
 	//transform에 들어갈 변수
-	Vector2<int> pos(x, y);
+	Vector2<float> pos(x, y);
 
 
 

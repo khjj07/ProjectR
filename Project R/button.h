@@ -4,7 +4,7 @@
 class Button :public GameObject
 {
 public:
-	Button(int pos_x, int pos_y, int size_x, int size_y, string filename1, string filename2, Meterial meterial);
+	Button(Vector2<float> p, Vector2<int> s, string filename1, string filename2, Meterial meterial);
 	Renderer* content;
 private:
 

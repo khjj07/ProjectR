@@ -6,11 +6,12 @@
 #include<windows.h>
 
 
-CursorScript::CursorScript(Transform* t, GamePad* pad)
+CursorScript::CursorScript(Transform* t, GameObject* go, GamePad* pad)
 {
 	transform = t;
 	velocity = Vector2<float>(0, 0);
 	controller = pad;
+	gameObject = go;
 }
 void CursorScript::Start()
 {
@@ -47,6 +48,10 @@ void CursorScript::Input()
 			direction.y = -1;
 			Move();
 		}
+		if (state.Gamepad.wButtons == XINPUT_GAMEPAD_X && EnterTarget)
+		{
+			EnterTarget->OnClick();
+		}
 	}
 	else
 	{
@@ -82,7 +87,7 @@ void CursorScript::Input()
 
 }
 
-void CursorScript::Update(double dt)
+void CursorScript::Update(float dt)
 {
 	Input();
 	transform->position = transform->position + velocity * dt;
@@ -94,16 +99,16 @@ void CursorScript::Update(double dt)
 
 void CursorScript::OnCollisionEnter(Collision* other)
 {
+
+}
+
+void CursorScript::OnCollisionStay(Collision* other)
+{
 	if (other->tag == ButtonTag)
 	{
 		EnterTarget = other->transform->GetComponent<ButtonScript>();
 		transform->GetComponent<Renderer>()->SetBackgroundColor(Color::RED);
 	}
-}
-
-void CursorScript::OnCollisionStay(Collision* other)
-{
-	
 }
 
 void CursorScript::OnCollisionExit(Collision* other)

@@ -1,10 +1,10 @@
-#include "floor.h"
+#include "wall.h"
 
-Floor::Floor(Vector2<float> p, Vector2<int>s,string filename,Meterial meterial)
+Wall::Wall(Vector2<float> p, Vector2<int>s, string filename, Meterial meterial)
 {
 	//transform에 들어갈 변수
 	Vector2<float> pos(p.x, p.y);
-	Vector2<int> size(s.x, s.y); 
+	Vector2<int> size(s.x, s.y);
 
 
 	//collision
@@ -12,15 +12,13 @@ Floor::Floor(Vector2<float> p, Vector2<int>s,string filename,Meterial meterial)
 	//선언  및 addComponent
 	transform = new Transform(pos, size, this, &componentList);
 	renderer = new Renderer(transform, Shape::Load(filename), meterial);
-	collision = new Collision(transform,this,collisionShape, FloorTag);
+	collision = new Collision(transform, this, collisionShape, WallTag);
 	AddComponent(renderer);
 	AddComponent(transform);
 	AddComponent(collision);
 }
-
-Floor::Floor(Vector2<float> p, Vector2<int>s, string filename, Meterial meterial, enum CollisionTag tag)
+Wall::Wall(Vector2<float> p, Vector2<int>s, string filename, Meterial meterial, enum CollisionTag tag)
 {
-
 	//transform에 들어갈 변수
 	Vector2<float> pos(p.x, p.y);
 	Vector2<int> size(s.x, s.y);

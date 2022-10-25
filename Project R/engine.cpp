@@ -2,7 +2,9 @@
 #include "gamePadManager.h"
 #include <iostream>
 #include <thread>
+#include <time.h>
 using std::thread;
+
 
 Engine::Engine()
 {
@@ -12,19 +14,31 @@ Engine::Engine()
 
 void Engine::Run()
 {
-	double dt = 0;
+	float dt = 0;
 	__int64  s, e, periodFrequency;
 	QueryPerformanceFrequency((LARGE_INTEGER*)&periodFrequency);
-	double timeScale = 1.0 / (double)periodFrequency;
+	float timeScale = 1.0 / (float)periodFrequency;
 
 	while (state == Running)
 	{
-		static double elapsed = 0;
+		static float elapsed = 0;
 		if (elapsed < 30)
 			elapsed = 0;
 		else
 			elapsed -= 30;
 		currentCollection = nextCollection;
+		if (objectBuffer)
+		{
+			currentCollection->Push(objectBuffer);
+			objectBuffer = nullptr;
+		}
+		if (removeObjectBuffer)
+		{
+			currentCollection->Pop(removeObjectBuffer);
+			removeObjectBuffer->OnDestroy();
+			delete removeObjectBuffer;
+			removeObjectBuffer = nullptr;
+		}
 		Start();
 		QueryPerformanceCounter((LARGE_INTEGER*)&s);
 		Update(dt);
@@ -34,7 +48,7 @@ void Engine::Run()
 			render->Update();
 		}
 		QueryPerformanceCounter((LARGE_INTEGER*)&e);
-		dt =(double)(e - s)*timeScale;
+		dt =(float)(e - s)*timeScale;
 		elapsed += dt;
 	}
 }
@@ -50,7 +64,17 @@ void Engine::Start()
 	}
 }
 
-void Engine::Update(double dt) {
+void Engine::Instantiate(GameObject* newObject)
+{
+	objectBuffer = newObject;
+}
+void Engine::Destroy(GameObject* obj)
+{
+	removeObjectBuffer = obj;
+}
+
+
+void Engine::Update(float dt) {
 	
 	GamePadManager::Instance()->Update();
 

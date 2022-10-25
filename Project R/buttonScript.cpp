@@ -3,9 +3,10 @@
 #include "gameStateManager.h"
 
 
-ButtonScript::ButtonScript(Transform *t)
+ButtonScript::ButtonScript(Transform* t, GameObject* go)
 {
 	transform = t;
+	gameObject = go;
 }
 
 void ButtonScript::OnClick()
@@ -17,7 +18,7 @@ void ButtonScript::Start()
 {
 
 }
-void ButtonScript::Update(double dt)
+void ButtonScript::Update(float dt)
 {
 	transform->GetComponent<Renderer>()->SetBackgroundColor(Color::WHITE);
 }

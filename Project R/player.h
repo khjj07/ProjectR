@@ -7,7 +7,7 @@
 class Player :public GameObject
 {
 public:
-	Player(int pos_x, int pos_y, int size_x, int size_y, string filename,Meterial meterial, Aim *aim, GamePad* pad);
+	Player(Vector2<float> p, Vector2<int> s, string filename, Meterial meterial, Aim *aim, HP* hp, GamePad* pad, int i);
 private:
 
 };

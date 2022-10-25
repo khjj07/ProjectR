@@ -4,7 +4,8 @@
 class Floor :public GameObject
 {
 public:
-	Floor(int x,int y, int size_x, int size_y,string filename, Meterial meterial);
+	Floor(Vector2<float> p, Vector2<int> s,string filename, Meterial meterial);
+	Floor(Vector2<float> p, Vector2<int> s, string filename, Meterial meterial, enum CollisionTag tag);
 private:
 
 };

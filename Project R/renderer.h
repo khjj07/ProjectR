@@ -1,6 +1,7 @@
 #pragma once
 #include "transform.h"
 #include "meterial.h"
+#include "gameObject.h"
 class Renderer :public Component
 {
 public:
@@ -11,7 +12,7 @@ public:
 	int textColor;
 	Transform* transform;
 	void Draw();
-	virtual void Update(double dt);
+	virtual void Update(float dt);
 	void SetBackgroundColor(int color);
 	void SetTextColor(int color);
 private:

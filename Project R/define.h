@@ -79,7 +79,10 @@ enum CollisionTag
 	FloorTag,
 	EnemyTag,
 	CursorTag,
-	ButtonTag
+	ButtonTag,
+	BulletTag,
+	WallTag,
+	BedRock,
 };
 
 struct Rectangle2D {

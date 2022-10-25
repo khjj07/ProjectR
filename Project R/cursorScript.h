@@ -7,9 +7,9 @@ class Component;
 class CursorScript :public Component
 {
 public:
-	CursorScript(Transform* t, GamePad* pad);
+	CursorScript(Transform* t, GameObject* go, GamePad* pad);
 	~CursorScript();
-	virtual void Update(double  dt);
+	virtual void Update(float  dt);
 	virtual void Start();
 	void Input();
 	void Move();

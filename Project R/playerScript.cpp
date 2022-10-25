@@ -1,17 +1,20 @@
 #include "component.h"
 #include "playerScript.h"
 #include "renderer.h"
-
 #include <conio.h>
 #include<windows.h>
+#include "defaultBullet.h"
+#include "timer.h"
 
-
-PlayerScript::PlayerScript(Transform* t,Aim* a,GamePad *pad)
+PlayerScript::PlayerScript(Transform* t, GameObject* go, Aim* a,HP *h, GamePad* pad, int i)
 {
 	transform = t;
 	velocity = Vector2<float>(0, 0);
 	aim = a;
 	controller = pad;
+	hp = h;
+	id = i;
+	gameObject = go;
 }
 void PlayerScript::Start()
 {
@@ -42,9 +45,40 @@ void PlayerScript::Input()
 			direction.x = 1;
 			Move();
 		}
+
+		if (state.Gamepad.sThumbRX <= -aim->response)
+		{ // 谅
+			aim->direction.x -= aim->speed/ aim->response;
+			aim->Move();
+		}
+		if (state.Gamepad.sThumbRX >= aim->response)
+		{ // 快
+			aim->direction.x += aim->speed/ aim->response;
+			aim->Move();
+		}
+		if (state.Gamepad.sThumbRY <= -aim->response)
+		{ // 谅
+			aim->direction.y += aim->speed/ aim->response;
+			aim->Move();
+		}
+		if (state.Gamepad.sThumbRY >= aim->response)
+		{ // 快
+			aim->direction.y -= aim->speed/ aim->response;
+			aim->Move();
+		}
+
 		if (jumpable && state.Gamepad.wButtons & XINPUT_GAMEPAD_A)
 		{ // 快
 			Jump();
+		}
+
+		if (attackable && state.Gamepad.wButtons == XINPUT_GAMEPAD_RIGHT_SHOULDER)
+		{ // 快
+			Engine::Instance()->Instantiate(new DefaultBullet(transform->position, aim->direction, id));
+			attackable = false;
+			Timer::Delay(1, false, [this]() {
+				attackable = true;
+				});
 		}
 	}
 	else
@@ -65,25 +99,33 @@ void PlayerScript::Input()
 			{
 				Jump();
 			}
+			if (attackable && GetAsyncKeyState('F') & 0x8000)
+			{
+				Engine::Instance()->Instantiate(new DefaultBullet(transform->position, aim->direction, id));
+				attackable = false;
+				Timer::Delay(1, false, [this]() {
+					attackable = true;
+					});
+			}
 
 			if (GetAsyncKeyState('J') & 0x8001)
 			{
-				aim->direction.x = -0.001;
+				aim->direction.x -= aim->speed;
 				aim->Move();
 			}
 			if (GetAsyncKeyState('L') & 0x8001)
 			{
-				aim->direction.x = 0.001;
+				aim->direction.x += aim->speed;
 				aim->Move();
 			}
 			if (GetAsyncKeyState('I') & 0x8001)
 			{
-				aim->direction.y = -0.001;
+				aim->direction.y -= aim->speed;
 				aim->Move();
 			}
 			if (GetAsyncKeyState('K') & 0x8001)
 			{
-				aim->direction.y = 0.001;
+				aim->direction.y += aim->speed;
 				aim->Move();
 			}
 		}
@@ -91,23 +133,52 @@ void PlayerScript::Input()
 	
 	
 }
+void PlayerScript::OnDestroy()
+{
 
-void PlayerScript::Update(double dt)
+}
+
+void PlayerScript::Update(float dt)
 {
 	Input();
 	transform->position = transform->position + velocity * dt;
+
+	aim->direction = aim->direction.Normalize();
+	aim->position.x =  aim->direction.x*aim->range * 2;
+	aim->position.y = aim->direction.y * aim->range;
+	aim->transform->position = transform->position + aim->position;
+	
+	int hp_center =  transform->size.x / 2- hp->Get();
+	hp->transform->position = transform->position + Vector2<float>(hp_center,-3);
+
 	velocity = velocity + gravity;
-	velocity.x = velocity.x + velocity.x* (-fraction);
+	velocity.x = velocity.x + velocity.x * (-fraction);
+
 }
 
 void PlayerScript::OnCollisionStay(Collision* other)
 {
 	if (other->tag == FloorTag)
 	{
-		direction.y = velocity.y >= -1 ? 1 : -1;
-		transform->position.y = transform->position.y - direction.y;
-		if (direction.y == 1)
+		if (transform->position.y - other->transform->position.y < 0)
+		{
 			jumpable = true;
-		velocity.y = 0;
+		}
+		transform->position.y = transform->position.y +(transform->position - other->transform->position).Normalize().y;
+		velocity.y = 1;
+	}
+	if (other->tag == WallTag)
+	{
+		transform->position.x = transform->position.x+(transform->position.x - other->transform->position.x);
+		velocity.x = 0;
+	}
+	if (other->tag == BulletTag)
+	{
+		auto bullet = other->transform->GetComponent<BulletScript>();
+		if (bullet->id != id)
+		{
+			hp->Decrease(bullet->damage);
+			other->Destory();
+		}
 	}
 }
