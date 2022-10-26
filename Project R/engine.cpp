@@ -26,17 +26,17 @@ void Engine::Run()
 			elapsed = 0;
 		else
 			elapsed -= 30;
-		if (objectBuffer)
+		if (!objectBuffer.empty())
 		{
-			currentCollection->Push(objectBuffer);
-			objectBuffer = nullptr;
+			currentCollection->Push(objectBuffer[0]);
+			objectBuffer.erase(objectBuffer.begin());
 		}
-		if (removeObjectBuffer)
+		if (!removeObjectBuffer.empty())
 		{
-			currentCollection->Pop(removeObjectBuffer);
-			removeObjectBuffer->OnDestroy();
-			delete removeObjectBuffer;
-			removeObjectBuffer = nullptr;
+			currentCollection->Pop(removeObjectBuffer[0]);
+			removeObjectBuffer[0]->OnDestroy();
+			delete removeObjectBuffer[0];
+			removeObjectBuffer.erase(removeObjectBuffer.begin());
 		}
 		if (nextCollection)
 		{
@@ -71,11 +71,11 @@ void Engine::Start()
 
 void Engine::Instantiate(GameObject* newObject)
 {
-	objectBuffer = newObject;
+	objectBuffer.push_back(newObject);
 }
 void Engine::Destroy(GameObject* obj)
 {
-	removeObjectBuffer = obj;
+	removeObjectBuffer.push_back(obj);
 }
 
 
@@ -84,6 +84,11 @@ void Engine::Update(float dt) {
 	GamePadManager::Instance()->Update();
 
 	vector<GameObject *>::iterator object = currentCollection->gameObjectList.begin();
+	for (; object < currentCollection->gameObjectList.end(); object++)
+	{
+		(*object)->Update(dt);
+	}
+	object = currentCollection->gameObjectList.begin();
 	for (; object < currentCollection->gameObjectList.end(); object++)
 	{
 		vector<Collision*>::iterator other = currentCollection->collisionList.begin();
@@ -101,11 +106,7 @@ void Engine::Update(float dt) {
 			}
 		}
 	}
-	object = currentCollection->gameObjectList.begin();
-	for (; object < currentCollection->gameObjectList.end(); object++)
-	{
-		(*object)->Update(dt);
-	}
+	
 
 	
 }

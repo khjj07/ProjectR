@@ -5,16 +5,15 @@
 #include "renderer.h"
 #include "event.h"
 class Component;
-class BulletScript :public Component
+class MoteScript :public Component
 {
 public:
-	BulletScript();
-	BulletScript(Transform* t, GameObject *go,Vector2<float> g, float f, float spd, float lt, int i, int dmg);
+	MoteScript();
+	MoteScript(Transform* t, Vector2<float> d,Vector2<float> g, float f, float spd);
 	virtual void Update(float  dt);
 	virtual void Start();
 	virtual void Shoot(Vector2<float> dir);
-	virtual void OnDestory();
-	virtual void OnCollisionStay(Collision *other);
+	virtual void OnCollisionStay(Collision* other);
 	Transform* transform;
 	Vector2<float> gravity;
 	Vector2<float> velocity;

@@ -12,8 +12,6 @@ void CardSelectorScript::OnEnable()
 {
 	index = 1;
 	applier = GameManager::Instance()->selector;
-
-
 }
 void CardSelectorScript::Input()
 {

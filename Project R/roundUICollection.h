@@ -9,11 +9,12 @@
 #include "engine.h"
 #include "fps.h"
 #include "gameStateManager.h"
+#include "gameManager.h"
 
-class CardUICollection : public Collection
+class RoundUICollection : public Collection
 {
 public:
-	CardUICollection();
+	RoundUICollection();
 private:
 
 };

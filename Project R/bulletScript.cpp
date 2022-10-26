@@ -1,7 +1,7 @@
 #include "component.h"
 #include "bulletScript.h"
 #include "gameStateManager.h"
-
+#include "Mote.h"
 
 BulletScript::BulletScript(Transform* t, GameObject* go, Vector2<float> g, float f, float spd, float lt, int i, int dmg)
 {
@@ -9,10 +9,11 @@ BulletScript::BulletScript(Transform* t, GameObject* go, Vector2<float> g, float
 	gravity = g;
 	fraction = f;
 	speed = spd;
-	damage = 100;
+	damage = dmg;
 	lifetime = lt;
 	id = i;
 	gameObject = go;
+	srand(time(NULL));
 }
 
 
@@ -32,10 +33,20 @@ void BulletScript::Shoot(Vector2<float> dir)
 	velocity=dir* speed;
 }
 
+void BulletScript::OnDestory()
+{
+	
+	
+}
+
 void BulletScript::OnCollisionStay(Collision* other)
 {
 	if (other->tag == WallTag || other->tag == FloorTag)
 	{
+		for (size_t i = 0; i < 1; i++)
+		{
+			Engine::Instance()->Instantiate(new Mote(transform->position+ direction * -10, direction * -1, rand() % 100));
+		}
 		Destory();
 	}
 }

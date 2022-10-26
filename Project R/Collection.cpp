@@ -16,8 +16,9 @@ void Collection::Push(GameObject* newObject)
 
 void Collection::Pop(GameObject* newObject)
 {
-	gameObjectList.erase(std::remove_if(gameObjectList.begin(), gameObjectList.end(), [newObject](GameObject *x) { return x == newObject; }), gameObjectList.end());
 	collisionList.erase(std::remove_if(collisionList.begin(), collisionList.end(), [newObject](Collision* x) { return x == newObject->collision; }), collisionList.end());
+	gameObjectList.erase(std::remove_if(gameObjectList.begin(), gameObjectList.end(), [newObject](GameObject *x) { return x == newObject; }), gameObjectList.end());
+	
 }
 
 void Collection::OnEnable()
@@ -37,4 +38,13 @@ void Collection::OnDisable()
 	{
 		(*object)->OnDisable();
 	}
+}
+
+vector<GameObject*>* Collection::GetObjectList()
+{
+	return &gameObjectList;
+}
+vector<Collision*>* Collection::GetCollisionList()
+{
+	return &collisionList;
 }

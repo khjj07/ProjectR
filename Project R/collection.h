@@ -6,11 +6,15 @@ class Collection
 {
 public:
 	Collection();
-	vector<GameObject*> gameObjectList;
-	vector<Collision*> collisionList;
+	
 	void Push(GameObject* newObject);
 	void Pop(GameObject* newObject);
-	void OnEnable();
-	void OnDisable();
+	virtual vector<GameObject*> *GetObjectList();
+	virtual vector<Collision*> *GetCollisionList();
+	virtual void OnEnable();
+	virtual void OnDisable();
+	vector<GameObject*> gameObjectList;
+	vector<Collision*> collisionList;
 };
+
 

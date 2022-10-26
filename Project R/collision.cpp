@@ -45,7 +45,7 @@ bool Collision::CollisionStay(Collision* other)
 
 	Vector2<int>A2 = shape->A + transform->position.toInt();
 	Vector2<int>B2 = shape->B + transform->position.toInt();
-	check = !((A1.x < A2.x&& B1.x < A2.x) || (A1.y < A2.y&& B1.y < A2.y) || (A1.x > B2.x+1 && B1.x > B2.x + 1) || (A1.y > B2.y + 1 && B1.y > B2.y + 1));
+	check = !((A1.x < A2.x&& B1.x < A2.x) || (A1.y < A2.y&& B1.y < A2.y) || (A1.x > B2.x && B1.x > B2.x) || (A1.y > B2.y && B1.y > B2.y));
 	return check;
 }
 

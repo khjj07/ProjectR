@@ -20,9 +20,6 @@
     <Filter Include="Game\Component">
       <UniqueIdentifier>{23bef8ac-4a72-44f3-98e2-cd98b6c72dd2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Component\Common">
-      <UniqueIdentifier>{97e6afbd-0ef6-49cb-a141-8cbe52414780}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Input">
       <UniqueIdentifier>{0ab9ba1a-85f7-4d12-bd01-6339232a43a9}</UniqueIdentifier>
     </Filter>
@@ -67,15 +64,6 @@
     </ClCompile>
     <ClCompile Include="player.cpp">
       <Filter>Game\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="collision.cpp">
-      <Filter>Game\Component\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="renderer.cpp">
-      <Filter>Game\Component\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="transform.cpp">
-      <Filter>Game\Component\Common</Filter>
     </ClCompile>
     <ClCompile Include="playerScript.cpp">
       <Filter>Game\Scripts</Filter>
@@ -161,7 +149,7 @@
     <ClCompile Include="map2Collection.cpp">
       <Filter>Game\Collection</Filter>
     </ClCompile>
-    <ClCompile Include="cardUICollection.cpp">
+    <ClCompile Include="roundUICollection.cpp">
       <Filter>Game\Collection</Filter>
     </ClCompile>
     <ClCompile Include="cardSelector.cpp">
@@ -175,6 +163,39 @@
     </ClCompile>
     <ClCompile Include="gameManager.cpp">
       <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="roundScript.cpp">
+      <Filter>Game\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="ingameCollection.cpp">
+      <Filter>Game\Collection</Filter>
+    </ClCompile>
+    <ClCompile Include="Empty.cpp">
+      <Filter>Game\Collection</Filter>
+    </ClCompile>
+    <ClCompile Include="victoryCollection.cpp">
+      <Filter>Game\Collection</Filter>
+    </ClCompile>
+    <ClCompile Include="victoryScript.cpp">
+      <Filter>Game\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="collision.cpp">
+      <Filter>Game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer.cpp">
+      <Filter>Game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="transform.cpp">
+      <Filter>Game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="animation.cpp">
+      <Filter>Game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="mote.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="moteScript.cpp">
+      <Filter>Game\Scripts</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -192,15 +213,6 @@
     </ClInclude>
     <ClInclude Include="player.h">
       <Filter>Game\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="collision.h">
-      <Filter>Game\Component\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="renderer.h">
-      <Filter>Game\Component\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="transform.h">
-      <Filter>Game\Component\Common</Filter>
     </ClInclude>
     <ClInclude Include="playerScript.h">
       <Filter>Game\Scripts</Filter>
@@ -292,7 +304,7 @@
     <ClInclude Include="map2Collection.h">
       <Filter>Game\Collection</Filter>
     </ClInclude>
-    <ClInclude Include="cardUICollection.h">
+    <ClInclude Include="roundUICollection.h">
       <Filter>Game\Collection</Filter>
     </ClInclude>
     <ClInclude Include="cardSelector.h">
@@ -306,6 +318,39 @@
     </ClInclude>
     <ClInclude Include="gameManager.h">
       <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="roundScript.h">
+      <Filter>Game\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="ingameCollection.h">
+      <Filter>Game\Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="Empty.h">
+      <Filter>Game\Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="victoryCollection.h">
+      <Filter>Game\Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="victoryScript.h">
+      <Filter>Game\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="collision.h">
+      <Filter>Game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer.h">
+      <Filter>Game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="transform.h">
+      <Filter>Game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="animation.h">
+      <Filter>Game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="mote.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="moteScript.h">
+      <Filter>Game\Scripts</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -343,6 +388,27 @@
       <Filter>Shape</Filter>
     </Text>
     <Text Include="card.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="round1.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="round2.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="round3.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="round4.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="round5.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="victory1.txt">
+      <Filter>Shape</Filter>
+    </Text>
+    <Text Include="mote.txt">
       <Filter>Shape</Filter>
     </Text>
   </ItemGroup>

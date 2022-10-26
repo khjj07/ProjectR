@@ -173,10 +173,10 @@ void PlayerScript::OnCollisionStay(Collision* other)
 		{
 			jumpable = true;
 		}
-		transform->position.y = transform->position.y +(transform->position - other->transform->position).Normalize().y;
+		transform->position.y = transform->position.y + Sign(transform->position.y - other->transform->position.y)*0.1;
 		velocity.y = 0;
 	}
-	if (other->tag == WallTag)
+	if (other->tag == WallTag || other->tag == PlayerTag)
 	{
 		transform->position.x = transform->position.x + Sign(transform->position.x - other->transform->position.x);
 		velocity.x =  0;
@@ -186,9 +186,9 @@ void PlayerScript::OnCollisionStay(Collision* other)
 		BulletScript* bullet = other->transform->GetComponent<BulletScript>();
 		if (bullet->id != id)
 		{
+			other->Destory();
 			if (hp->Decrease(bullet->damage))
 			{
-				other->Destory();
 				auto gamepadManager = GamePadManager::Instance();
 				GameManager::Instance()->selector = this->gameObject;
 				gamepadManager->mainController = gamepadManager->p[id];

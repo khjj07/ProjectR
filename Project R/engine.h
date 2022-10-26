@@ -30,8 +30,8 @@ public:
 	enum EngineState state= Running;
 	Render* render;
 	Screen* screen;
-	GameObject* objectBuffer;
-	GameObject* removeObjectBuffer;
+	vector<GameObject*> objectBuffer;
+	vector<GameObject*>  removeObjectBuffer;
 	Collection* currentCollection;
 	Collection* nextCollection;
 private:

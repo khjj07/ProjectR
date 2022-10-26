@@ -2,6 +2,7 @@
 #include "define.h"
 #include "gameState.h"
 #include "engine.h"
+#include "Empty.h"
 template<typename T>
 class GameStateManager :public Singleton<GameStateManager<T> > {
 	public:
@@ -48,5 +49,4 @@ void GameStateManager<T>::Change(GameState<T>* state)
 		currentState->collection.OnDisable();
 	currentState = state;
 	Engine::Instance()->SetCollection(&(currentState->collection));
-	
 }

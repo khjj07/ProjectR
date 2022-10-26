@@ -1,4 +1,4 @@
-#include "map1Collection.h"
+#include "ingameCollection.h"
 #include "floor.h"
 #include "wall.h"
 #include "player.h"
@@ -7,8 +7,42 @@
 #include "gamePadManager.h"
 #include "gameStateManager.h"
 #include "gameManager.h"
-Map1Collection::Map1Collection()
+#include <time.h>
+#include <random>
+#define WinnerColor(x) x==0? Color::GREEN :Color::BLUE
+
+IngameCollection ::IngameCollection()
 {
+
+	EventHandler dead([]() {
+		auto gameManager = GameManager::Instance();
+		gameManager->score[gameManager->selector->script->id]++;
+		if (GameManager::Instance()->score[gameManager->selector->script->id] >= 3)
+		{
+			gameManager->winner = gameManager->selector->script->id;
+			gameManager->winnerColor = WinnerColor(gameManager->selector->script->id);
+			GameStateManager<MainState>::Instance()->Previous();
+		}
+			
+		else
+		{
+			GameManager::Instance()->round++;
+			GameStateManager<MainState>::Instance()->Next();
+		}
+	});
+
+	HP* hp1 = new HP(10, 0, Meterial(Color::RED, Color::RED, 5));
+	Aim* aim1 = new Aim(Vector2<int>(3, 3), "aim.txt", Meterial(Color::BLACK, Color::CYAN, 3));
+	Player* player1 = new Player(Vector2<float>(5, 5), Vector2<int>(8, 7), "player.txt", Meterial(Color::BLUE, Color::BLUE, 2), aim1, hp1, GamePadManager::Instance()->p[0], 0);
+	player1->script->DeadEvent.addHandler(dead);
+
+
+	HP* hp2 = new HP(10, 1, Meterial(Color::LIGHTRED, Color::LIGHTRED, 5));
+	Aim* aim2 = new Aim(Vector2<int>(3, 3), "aim.txt", Meterial(Color::BLACK, Color::CYAN, 3));
+	Player* player2 = new Player(Vector2<float>(330, 20), Vector2<int>(8, 7), "player.txt", Meterial(Color::GREEN, Color::GREEN, 2), aim2, hp2, GamePadManager::Instance()->p[1], 1);
+	player2->script->DeadEvent.addHandler(dead);
+
+
 	//상하좌우 막는 벽
 	//상하좌우 막는 벽
 	Floor* obj4 = new Floor(Vector2<float>(1, 99), Vector2<int>(380, 1), "floor2.txt", Meterial(Color::GREEN, Color::YELLOW, 1));
@@ -72,4 +106,13 @@ Map1Collection::Map1Collection()
 	Push(obj26);
 	Push(obj27);
 	Push(obj28);
+
+
+	Push(player1);
+	Push(aim1);
+	Push(hp1);
+	Push(player2);
+	Push(aim2);
+	Push(hp2);
+	srand(time(NULL));
 }

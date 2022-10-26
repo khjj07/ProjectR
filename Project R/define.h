@@ -87,6 +87,7 @@ enum CollisionTag
 	BulletTag,
 	WallTag,
 	BedRock,
+	MoteTag
 };
 
 struct Rectangle2D {

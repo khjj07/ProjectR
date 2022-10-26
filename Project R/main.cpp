@@ -8,7 +8,9 @@
 #include "gamePadManager.h"
 #include "map1Collection.h"
 #include "titleUICollection.h"
-#include "cardUICollection.h"
+#include "roundUICollection.h"
+#include "IngameCollection.h"
+#include "victoryCollection.h"
 #include "shape.h"
 
 int EventHandler::counter = 0;
@@ -23,22 +25,30 @@ int main()
 	//오브젝트 선언
 	
 	//Collection 선언
-	Map1Collection *map1 = new Map1Collection();
+	RoundUICollection* roundUI = new RoundUICollection();
 	TitleUICollection* titleUI = new TitleUICollection();
-	CardUICollection* cardUI = new CardUICollection();
+
+	IngameCollection* main = IngameCollection::Instance();
+	Map1Collection *map1 = new Map1Collection();
+	VictoryCollection * victoryUI = new VictoryCollection();
+
 
 	GameState<MainState> title;
+	GameState<MainState> round;
 	GameState<MainState> ingame;
-	GameState<MainState> card;
-	title.nextState = &ingame;
-	ingame.nextState = &card;
-	card.nextState = &ingame;
+	GameState<MainState> victory;
+	title.nextState = &round;
+	round.nextState = &ingame;
+	victory.nextState = &title;
+	ingame.nextState = &round;
+	ingame.previousState = &victory;
+
+
 	//MainState-title
 	title.SetCollection(*titleUI);
-	ingame.SetCollection(*map1);
-	card.SetCollection(*cardUI);
-	
-
+	ingame.SetCollection(*main);
+	round.SetCollection(*roundUI);
+	victory.SetCollection(*victoryUI);
 	GameStateManager<MainState>* mainStateManager = GameStateManager<MainState>::Instance();
 	mainStateManager->Change(&title);
 	engine->Run();

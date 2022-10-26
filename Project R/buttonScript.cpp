@@ -14,6 +14,7 @@ void ButtonScript::OnClick()
 	transform->GetComponent<Renderer>()->SetBackgroundColor(Color::BROWN);
 	OnClickEvent();
 }
+
 void ButtonScript::Start()
 {
 

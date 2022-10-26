@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="aim.cpp" />
+    <ClCompile Include="animation.cpp" />
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="bullet.cpp" />
     <ClCompile Include="bulletScript.cpp" />
@@ -136,13 +137,16 @@
     <ClCompile Include="card.cpp" />
     <ClCompile Include="cardSelector.cpp" />
     <ClCompile Include="cardSelectorScript.cpp" />
-    <ClCompile Include="cardUICollection.cpp" />
+    <ClCompile Include="mote.cpp" />
+    <ClCompile Include="moteScript.cpp" />
+    <ClCompile Include="roundUICollection.cpp" />
     <ClCompile Include="collection.cpp" />
     <ClCompile Include="collision.cpp" />
     <ClCompile Include="component.cpp" />
     <ClCompile Include="cursor.cpp" />
     <ClCompile Include="cursorScript.cpp" />
     <ClCompile Include="defaultBullet.cpp" />
+    <ClCompile Include="Empty.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="event.cpp" />
     <ClCompile Include="eventHandler.cpp" />
@@ -152,6 +156,7 @@
     <ClCompile Include="gameState.cpp" />
     <ClCompile Include="gameStateManager.cpp" />
     <ClCompile Include="hp.cpp" />
+    <ClCompile Include="ingameCollection.cpp" />
     <ClCompile Include="map1Collection.cpp" />
     <ClCompile Include="map2Collection.cpp" />
     <ClCompile Include="meterial.cpp" />
@@ -162,16 +167,20 @@
     <ClCompile Include="playerScript.cpp" />
     <ClCompile Include="render.cpp" />
     <ClCompile Include="renderer.cpp" />
+    <ClCompile Include="roundScript.cpp" />
     <ClCompile Include="screen.cpp" />
     <ClCompile Include="shape.cpp" />
     <ClCompile Include="buttonScript.cpp" />
     <ClCompile Include="timer.cpp" />
     <ClCompile Include="titleUICollection.cpp" />
     <ClCompile Include="transform.cpp" />
+    <ClCompile Include="victoryCollection.cpp" />
+    <ClCompile Include="victoryScript.cpp" />
     <ClCompile Include="wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="aim.h" />
+    <ClInclude Include="animation.h" />
     <ClInclude Include="bullet.h" />
     <ClInclude Include="bulletScript.h" />
     <ClInclude Include="button.h" />
@@ -179,7 +188,9 @@
     <ClInclude Include="card.h" />
     <ClInclude Include="cardSelector.h" />
     <ClInclude Include="cardSelectorScript.h" />
-    <ClInclude Include="cardUICollection.h" />
+    <ClInclude Include="mote.h" />
+    <ClInclude Include="moteScript.h" />
+    <ClInclude Include="roundUICollection.h" />
     <ClInclude Include="collision.h" />
     <ClInclude Include="color.h" />
     <ClInclude Include="component.h" />
@@ -187,6 +198,7 @@
     <ClInclude Include="cursorScript.h" />
     <ClInclude Include="defaultBullet.h" />
     <ClInclude Include="define.h" />
+    <ClInclude Include="Empty.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="event.h" />
     <ClInclude Include="eventHandler.h" />
@@ -198,6 +210,7 @@
     <ClInclude Include="collection.h" />
     <ClInclude Include="Box.h" />
     <ClInclude Include="hp.h" />
+    <ClInclude Include="ingameCollection.h" />
     <ClInclude Include="map1Collection.h" />
     <ClInclude Include="map2Collection.h" />
     <ClInclude Include="meterial.h" />
@@ -206,6 +219,7 @@
     <ClInclude Include="gameObject.h" />
     <ClInclude Include="render.h" />
     <ClInclude Include="renderer.h" />
+    <ClInclude Include="roundScript.h" />
     <ClInclude Include="screen.h" />
     <ClInclude Include="shape.h" />
     <ClInclude Include="singleton.h" />
@@ -213,6 +227,8 @@
     <ClInclude Include="titleUICollection.h" />
     <ClInclude Include="transform.h" />
     <ClInclude Include="playerScript.h" />
+    <ClInclude Include="victoryCollection.h" />
+    <ClInclude Include="victoryScript.h" />
     <ClInclude Include="wall.h" />
   </ItemGroup>
   <ItemGroup>
@@ -224,8 +240,15 @@
     <Text Include="cursor.txt" />
     <Text Include="defaultBullet.txt" />
     <Text Include="floor1.txt" />
+    <Text Include="mote.txt" />
     <Text Include="player.txt" />
+    <Text Include="round1.txt" />
+    <Text Include="round2.txt" />
+    <Text Include="round3.txt" />
+    <Text Include="round4.txt" />
+    <Text Include="round5.txt" />
     <Text Include="title.txt" />
+    <Text Include="victory1.txt" />
     <Text Include="wall1.txt" />
     <Text Include="wall2.txt" />
   </ItemGroup>
